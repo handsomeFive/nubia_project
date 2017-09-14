@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/public/reset.css">
+	<style type="text/css">
+	body{ background: #f5f5f5;}
+	.container{ width: 850px; margin: 0 auto; background: #fff; margin-top: 60px; overflow: hidden; }
+	.logBox{ width: 360px; margin: 0 auto;}
+	.log_logo{ width:156px; height:55px;background:url("../images/header/nubia-logo.png") 0 -55px; margin:0 auto;margin-top: 30px;}
+	.log_tab{ margin:10px 0 20px 0; height:24px; line-height: 24px;text-align: center; font-size: 18px;}
+	.log_tab a{ color:#333;}
+	.log_tab label:first-child{ margin-right: 8px;}
+	.log_tab label:last-child{ margin-left: 8px;}
+	.logBox input{ height: 48px; border: 1px solid #e0e4e7; background:#fff;padding-left: 10px;}
+	.phonenum-inp ,.code-input,.phonecode-inp{ position: relative; margin-bottom: 20px;width:100%;}
+	.redword{ position: absolute;}
+	.phonenum-inp input{ width: 348px;}
+	.code-input input{ width: 223px;}
+	.code-input img{ width: 120px; height: 48px; float: right;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="logBox">
+			<div class="log_logo"></div>
+			<form action="?">
+				<div class="log_tab">
+					<label><a href="javascript:void(0)">努比亚账号登录</a></label>|<label><a href="javascript:void(0)">手机验证码登录</a></label>
+				</div>
+				<div class="logbyphone">
+					<div class="phonenum-inp">
+						<input type="text" placeholder="手机号码"/><span class="redword">请填写信息！</span>
+					</div>
+					<div class="code-input">
+						<input type="text" placeholder="请输入验证码(不区分大小写)"/><a href="javascript:void(0)"><img src="" alt="验证码"></a><span class="redword">请填写信息！</span>
+					</div>
+					<div class="phonecode-inp">
+						<input type="text" placeholder="请输入手机验证码"/><input type="button" value="获取验证码"/><span class="redword"> 手机验证码不能为空</span>
+					</div>
+				</div>
+				<div class="logbyemail"></div>
+				<input type="submit" value="立即登录"/>
+			</form>
+			<div class="tabLogReg"></div>
+			<div class="otherway"></div>
+		</div>
+		<p>2012-2017 努比亚 版权所有 粤ICP备10006213号-2 ICP经营许可证编号：粤B2-20120688深圳市市场监督管理局企业主体身份公示 努比亚技术有限公司</p>
+	</div>
+</body>
+</html>
