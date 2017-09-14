@@ -1,0 +1,62 @@
+<style type="text/css">
+.bottom_content{ padding:10px 0 20px 0;text-align: center; height: 208px; }
+.bottom_logo{ width: 100%;}
+.bottom_logo img{ width: 105px; margin: 0 auto;}
+.bottom_contact{ width: 100%;text-align: center; margin-bottom: 10px;}
+.bottom_contact a{ display: inline-block; width: 32px; height: 32px;margin: 0 5px;}
+.bottom_contact i{ font-size: 32px; }
+.bottom_infor a{ color:#e95f46; padding:0 10px;}
+.bottom_infor img{ display: inline-block; width: 14px; padding:0 10px; position: relative;top: 4px;}
+.bottom_infor p{ line-height: 30px;}
+.bottom_infor i{display: inline-block; border-radius: 10px; color:auto; width: 16px;height: 11px; background: url(../images/content/spritesheet.png) no-repeat -2px -692px; margin-right: 5px; margin-bottom: -2px;}
+.bottom_infor .selectOrigin{ margin-left: 4px; width:69px;height: 12px; padding: 4px 10px; border: 1px solid rgb(233, 232, 230);background:rgb(233, 232, 230);border-radius:50px; color: #555;line-height: 12px;display: inline-block;}
+.bottom_infor .selectOrigin:hover{color: #fff; background:#B6B6B6;border-color: #B6B6B6;}
+.showercode{ position: relative;}
+.ercode_box{ display: none; position: absolute;width: 138px; padding: 5px; border: 1px solid rgb(204, 204, 204); background: #fff;border-radius: 5px; left: -60px; top: -166px;}
+.ercode_box img{ width: 100%;}
+.ercode_box span{ position: absolute;display: block; border-top:7px solid #ccc; border-left: 7px solid transparent;
+border-right: 7px solid transparent;left:68px;bottom: -7px;}
+.bottom_contact a:link{color:#ccc;}
+.bottom_contact a:first-child:hover{ color:firebrick;}
+.bottom_contact a:nth-child(2):hover{ color: green;}
+.bottom_contact a:active{ color:tomato;}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$(".showercode").mouseenter(function(){
+			$(".ercode_box").fadeIn();
+		})
+		$(".showercode").mouseleave(function(){
+			$(".ercode_box").fadeOut();
+		})
+	})
+</script>
+<div class="bottom_content">
+	<div class="main">
+		<a href="?" class="bottom_logo">
+			<img src="../images/content/nubia_logo_2.png">
+		</a>
+		<div class="bottom_contact">
+			<a href="?"><i class="iconfont icon-weibo"></i></a>
+			<a href="?" class="showercode"><i class="iconfont icon-weixintubiao"></i>
+				<div class="ercode_box">
+					<img src="../images/content/ercode.jpg">
+					<span></span>
+				</div>
+			</a>
+			<a href="?"><i class="iconfont icon-kefu"></i></a>
+		</div>
+		<div class="bottom_infor">
+			<p>
+				<span>2012-2017 努比亚技术有限公司 版权所有</span
+				><a href="?">粤ICP备10006213号-2</a>
+			</p>
+			<p>
+				<span><img src="../images/content/tiny1.jpg">ICP经营许可证编号：粤B2-20120688</span><a href="?"><img src="../images/content/tiny2.png">粤公网安备 44030502000309号</a>
+			</p>
+			<p>
+				<a href="?">加入我们</a>-<a href ="?">公益</a>-<a href="">星空之约</a>-<a href="">问题反馈</a>-<a href="?" class="selectOrigin"><i class="flage"></i>简体中文</a>
+			</p>
+		</div>
+	</div>
+</div>

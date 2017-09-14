@@ -1,0 +1,32 @@
+.header_content{ width: 100%; background: #282828; position: relative;}
+.header_row{ margin: 0 auto; line-height: 66px;}
+.header_logo{ float: left; margin:0 30px;}
+.header_logo img{ width: 140px; height: 50px; margin-top: 6px;}
+.header_list{ float: left; margin-left: 72px;}
+.header_list li{ float: left; font-size: 14px;padding: 0 25px;}
+.header_list li a.header_list_click{ color: #fff;}
+.header_operation{ float: right; margin-right:15px; font-size: 14px; text-align: center;color: #fff}
+.header_operation a{ color: #fff}
+.header_operation .header_cart{ width: 120px; height: 66px; background: #f25c4a; float: left;}
+.header_operation .header_log{ float: left; padding: 0 18px;}
+.header_operation .header_log  i ,.header_operation .header_cart i{font-size: 18px;}
+.header_operation .header_cart i{position: relative; top: -2px;}
+.header_list .header_list_click:hover,.header_log a:hover{color: #aaa}
+.head_hidden_content a:hover p,.head_hidden_content a:hover i{ color: #aaa}
+.head_hidden{z-index:98;background: rgba(49, 49, 49, 0.95); width: 100%;overflow:hidden;position: absolute; top: 66px;left: 0; height: 0}
+.head_hidden_content{ position:absolute;width: 1170px; position: relative; height: 240px; margin: 0 auto;overflow: hidden;}
+.header_list .head_hidden_content_phoneBox{ display: block; float: left; width:175px;padding: 0;text-align: center;margin: 0 10px}
+.header_list .head_hidden_content_phoneBox i{ font-size: 60px; color: #fff;margin-top: 68px; display: block;}
+.header_list .head_hidden_content_phoneBox p{ color: #fff}
+.head_hidden_content_phoneBox img{ width: 120px; margin: 0 auto; margin-top: 38px;}
+.head_hidden_content_phoneBox i img{ padding:20px 0; }
+.head_hidden_content_phoneBox .head_hidden_special{ width: 65px; padding: 0;}
+.head_hidden_prev , .head_hidden_next,.head_hidden_prev1 , .head_hidden_next1{ z-index: 99; position: absolute;}
+.head_hidden_prev,.head_hidden_prev1{left: 40px} 
+.head_hidden_next,.head_hidden_next1{ right:40px}
+.head_hidden_prev a , .head_hidden_next a{  height: 240px; display: block; }
+.head_hidden_prev1 a , .head_hidden_next1 a{  height: 240px; display: block; }
+.head_hidden_prev a i , .head_hidden_next a i{ font-size: 24px; line-height: 240px;}
+.head_hidden_prev1 a i , .head_hidden_next1 a i{ font-size: 24px; line-height: 240px;}
+.head_hidden_content_all,.head_hidden_content_all2{ position: absolute;}
+.head_hidden_more p{ width: 60px; line-height: 24px; margin:  0 auto; margin-top: 24px;}
