@@ -1,0 +1,11 @@
+require(["config"],function(){
+	require(["jquery","cookie","header"],function(a,b,c){
+		$.ajax({
+			url:"/html/public/header.html",
+			dataType:"html",
+			success:function(data){
+				$(".header").html(data);
+			}
+		})
+	})
+})

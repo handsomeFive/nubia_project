@@ -4,22 +4,115 @@
 	<meta charset="utf-8"/>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../css/public/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/font/iconfont.css">
 	<style type="text/css">
 	body{ background: #f5f5f5;}
-	.container{ width: 850px; margin: 0 auto; background: #fff; margin-top: 60px; overflow: hidden; }
-	.logBox{ width: 360px; margin: 0 auto;}
+	.container{ width: 850px; margin: 0 auto; background: #fff; margin-top: 60px; overflow: hidden; margin-bottom: 40px;}
+	.logBox{ width: 360px; margin: 0 auto; padding-bottom: 50px;}
 	.log_logo{ width:156px; height:55px;background:url("../images/header/nubia-logo.png") 0 -55px; margin:0 auto;margin-top: 30px;}
 	.log_tab{ margin:10px 0 20px 0; height:24px; line-height: 24px;text-align: center; font-size: 18px;}
 	.log_tab a{ color:#333;}
 	.log_tab label:first-child{ margin-right: 8px;}
 	.log_tab label:last-child{ margin-left: 8px;}
+	.logbyphone{ display: none;}
 	.logBox input{ height: 48px; border: 1px solid #e0e4e7; background:#fff;padding-left: 10px;}
 	.phonenum-inp ,.code-input,.phonecode-inp{ position: relative; margin-bottom: 20px;width:100%;}
-	.redword{ position: absolute;}
+	.redword{ position: absolute; left: 367px; white-space: nowrap; top: 15px; font-size: 12px; color: red;display: none;}
 	.phonenum-inp input{ width: 348px;}
 	.code-input input{ width: 223px;}
-	.code-input img{ width: 120px; height: 48px; float: right;}
+	.code-input img{ width: 120px; height: 48px; float: right; border: 1px solid #ddd}
+	.phonecode-inp { display: relative;}
+	.code-inptext{ width: 348px;}
+	.phonecode-inp .getNewCode{ position: absolute;right: 0;height: 50px; width: 98px; cursor: pointer;}
+	.logBox .checkout{ width: 360px; height: 50px; border: none; background: #e8380d; color: #fff; font-size: 20px; margin: 10px 0 20px 0; cursor: pointer;}
+	.tabLogReg{ margin-top: 10px; height: 24px; line-height: 24px; font-size: 14px; text-align: right; }
+	.tabLogReg a{color:#34383d}
+	.tabLogReg a:hover{ text-decoration: underline;}
+	.tabLogReg span{ padding: 0 7px;}
+	.otherway{ margin-top: 20px; font-size: 14px; color: #666; height: 30px; line-height: 30px; vertical-align: middle;}
+	.otherway a{ margin-left: 15px;}
+	.otherway i{ font-size: 28px; color: #979797;}
+	.otherway span{ position: relative; top: -6px;}
+	.otherway a:hover i.logbyweixin{ color:#00a31e}
+	.otherway a:hover i.logbyalipay{ color:#00a0e9}
+	.otherway a:hover i.logbyweibo{ color:#dc2c22}
+	.otherway a:hover i.logbyqq{ color:#00a0e9}
+	.log_tab .active,.tabLogReg .active{
+		color: #e8380d;
+	}
+	.copyright{ text-align: center; padding-top: 10px; font-size: 12px;color: #ccc}
+	.copyright a{ color: #ccc}
+	.copyright a:hover{ color: #333}
+	.logbyaccount input{ width: 348px; margin-bottom: 20px;}
+	.accout-inp{ position: relative;}
 	</style>
+	<script type="text/javascript" src="../lib/jquery/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		// 生成验证码
+		function getImgCode(){
+			$.ajax({
+				type:"post",
+				// url:"http://route.showapi.com/26-4",
+				dataType:"json",
+				data:{
+					"showapi_appid":"45026",
+					"showapi_sign":"38c0df553479481fa15ab3d683f10aa0"
+				},
+				success:function(data){
+					$(".imgcode").attr({"check":data.showapi_res_body.text,"src":data.showapi_res_body.img_path});
+				}
+			})
+		}
+		// 点击切换登录方式
+		$(".log_tab").on("click","label",function(){
+			if ($(this).is($(".log_tab label:first"))) {
+				$(".logbyaccount").show();
+				$(".logbyphone").hide();
+			}else{
+				$(".logbyaccount").hide();
+				$(".logbyphone").show();
+				getImgCode();
+			}
+			$(this).children().addClass("active").end().siblings().children().removeClass("active");
+		})
+		// 简单的表单验证
+
+		// 手机号码的验证
+		$(".phonenum").blur(function(){
+			var content=$(this).val();
+			var reg=/^(131|135|138|139|152|155)\d{8}$/;
+			if(!content){
+				$(this).siblings().show().html("请填写信息！");
+			}else if(reg.test(content)){
+				$(this).siblings().hide();
+			}else{
+				$(this).siblings().show().html("手机号码格式错误");
+			}
+		})
+		// 账户的输入检测
+		// 手机验证码的验证(就仅为检测是否输入)
+		$(".accountname,.code-inptext").blur(function(){
+			if(!$(this).val()){
+				$(this).siblings("span").show();
+			}else{
+				$(this).siblings("span").hide();
+			}		
+		})
+		//图形验证码的检测以及点击图片按钮切换图标；
+		$(".code").blur(function(){
+			var content=$(this).val();
+			if(!content){
+				$(this).siblings("span").show().html("请填写信息！");
+			}else if($(this).siblings("a").children("img").attr("check")==content){
+				$(this).siblings("span").hide();
+			}else{
+				$(this).siblings("span").show().html("验证码不正确,请重新输入");
+			}	
+		})
+		$(".imgcode").click(getImgCode);
+	})
+	</script>
 </head>
 <body>
 	<div class="container">
@@ -27,26 +120,38 @@
 			<div class="log_logo"></div>
 			<form action="?">
 				<div class="log_tab">
-					<label><a href="javascript:void(0)">努比亚账号登录</a></label>|<label><a href="javascript:void(0)">手机验证码登录</a></label>
+					<label><a href="javascript:void(0)" class="active">努比亚账号登录</a></label>|<label><a href="javascript:void(0)" >手机验证码登录</a></label>
 				</div>
 				<div class="logbyphone">
 					<div class="phonenum-inp">
-						<input type="text" placeholder="手机号码"/><span class="redword">请填写信息！</span>
+						<input type="text" placeholder="手机号码" class="phonenum"/><span class="redword">请填写信息！</span>
 					</div>
 					<div class="code-input">
-						<input type="text" placeholder="请输入验证码(不区分大小写)"/><a href="javascript:void(0)"><img src="" alt="验证码"></a><span class="redword">请填写信息！</span>
+						<input type="text" placeholder="请输入验证码(不区分大小写)" class="code"/><a href="javascript:void(0)"><img src="" alt="验证码" class="imgcode"></a><span class="redword">请填写信息！</span>
 					</div>
 					<div class="phonecode-inp">
-						<input type="text" placeholder="请输入手机验证码"/><input type="button" value="获取验证码"/><span class="redword"> 手机验证码不能为空</span>
+						<input type="text" placeholder="请输入手机验证码" class="code-inptext"/><input type="button" value="获取验证码" class="getNewCode"/><span class="redword"> 手机验证码不能为空</span>
 					</div>
 				</div>
-				<div class="logbyemail"></div>
-				<input type="submit" value="立即登录"/>
+				<div class="logbyaccount">
+					<div class="accout-inp">
+						<input type="text" placeholder="邮箱/手机号码/用户名" class="accountname"/><span class="redword">请填写信息！</span>
+					</div>
+					<div>
+						<input type="password" placeholder="密码为6-16个字符(数字、字母符号至少包含两种)" class="phonenum"/>
+					</div>
+				</div>
+				<input type="submit" value="立即登录" class="checkout"/>
 			</form>
-			<div class="tabLogReg"></div>
-			<div class="otherway"></div>
+			<div class="tabLogReg"><a href="/html/register.html" class="active">注册新账号</a><span>|</span><a href="?">忘记密码?</a></div>
+			<div class="otherway">
+				<span>其他方式登录：</span><a href="?"><i class="iconfont icon-weixin logbyweixin"></i
+								></a><a href="?"><i class="iconfont icon-zhifubao logbyalipay" ></i
+								></a><a href="?"><i class="iconfont icon-weibo-copy logbyweibo"></i
+								></a><a href="?"><i class="iconfont icon-QQ-copy logbyqq"></i></a>
+			</div>
 		</div>
-		<p>2012-2017 努比亚 版权所有 粤ICP备10006213号-2 ICP经营许可证编号：粤B2-20120688深圳市市场监督管理局企业主体身份公示 努比亚技术有限公司</p>
 	</div>
+	<p class="copyright">2012-2017 努比亚 版权所有 <a href="?">粤ICP备10006213号-2</a> ICP经营许可证编号：粤B2-20120688深圳市市场监督管理局企业主体身份公示 努比亚技术有限公司</p>
 </body>
 </html>
