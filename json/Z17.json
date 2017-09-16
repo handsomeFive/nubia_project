@@ -6,20 +6,23 @@
 		 "edtion":[{"store":"6GB+64GB",
 		 			"options":{"discounts":[
 		 									{"dname":"套装版",
-		 									 "price":"￥2999.00",
+		 									 "price":"2999.00",
 		 									 "save":"省28.00元",
+		 									 "originalprice":"(原价:¥3024.00元)",
 		 									 "otherprod":[{"name":"努比亚律音耳机(深沉灰)","proSrc":"/images/product_Z17/erji.jpg"},
 		 									 			  {"name":"努比亚移动电源（8000mAh）(白色)","proSrc":"/images/product_Z17/powerbank.jpg"}
 		 									 			 ]
 		 									},
 		 									{"dname":"广东电信流量套装",
-		 									 "price":"￥2799.10",
+		 									 "price":"2799.10",
 		 									 "save":"省18.90元",
+		 									 "originalprice":"(原价:¥2818.00元)",
 		 									 "otherprod":[{"name":"广东电信流量卡(黑色)","proSrc":"/images/product_Z17/card.jpg"}]
 		 									 },
 		 									{"dname":"仅手机",
-		 									 "price":"￥2799.00",
+		 									 "price":"2799.00",
 		 									 "save":"",
+		 									 "originalprice":"",
 		 									 "otherprod":""
 		 									}
 		 								   ],
@@ -28,20 +31,22 @@
 		 					   			{"way":"￥533.17*6","servicetip":"(含￥0.00手续费)"},
 		 					   			{"way":"￥286.58*12","servicetip":"(含￥239.93手续费)"}
 		 					   		   ],
-		 					   "insurance":"Z17标准版屏碎宝（1年内保修1次）￥129"
+		 					   "insurance":{"name":"Z17标准版屏碎宝（1年内保修1次）","price":"129"}
 		 					  },
 		 			"imgSrc":["/images/product_Z17/black1.jpg","/images/product_Z17/black2.jpg","/images/product_Z17/black3.jpg","/images/product_Z17/black4.jpg"]
 		 			},
 				   {"store":"8GB+64GB",
 				   	"options":{"discounts":[
 		 									{"dname":"广东电信流量套装",
-		 									 "price":"￥3199.10",
+		 									 "price":"3199.10",
 		 									 "save":"省18.90元",
+		 									 "originalprice":"(原价:¥3218.00元)",
 		 									 "otherprod":[{"name":"广东电信流量卡(黑色)","proSrc":"/images/product_Z17/card.jpg"}]
 		 									},
 		 									{"dname":"仅手机",
-		 									 "price":"￥3199.00",
+		 									 "price":"3199.00",
 		 									 "save":"",
+		 									 "originalprice":"",
 		 									 "otherprod":""
 		 									}
 		 								   ],
@@ -50,7 +55,7 @@
 		 					   			{"way":"￥487.49*6","servicetip":"(含￥125.95手续费)"},
 		 					   			{"way":"￥250.74*12","servicetip":"(含￥209.93手续费)"}
 		 					   		   ],
-		 					   "insurance":"Z17 8GB+64GB版屏碎宝（1年内保修1次）￥139"
+		 					   "insurance":{"name":"Z17 8GB+64GB版屏碎宝（1年内保修1次）","price":"139"}
 		 					  },
 		 			"imgSrc":["/images/product_Z17/black1.jpg","/images/product_Z17/black2.jpg","/images/product_Z17/black3.jpg","/images/product_Z17/black4.jpg"]
 				   }
@@ -61,20 +66,23 @@
 		 "edtion":[{"store":"6GB+64GB",
 		 			"options":{"discounts":[
 		 									{"dname":"套装版",
-		 									 "price":"￥2999.00",
+		 									 "price":"2999.00",
 		 									 "save":"省28.00元",
+		 									 "originalprice":"(原价:¥3027.00元)",
 		 									 "otherprod":[{"name":"努比亚律音耳机(深沉灰)","proSrc":"/images/product_Z17/erji.jpg"},
 		 									 			  {"name":"努比亚移动电源（8000mAh）(白色)","proSrc":"/images/product_Z17/powerbank.jpg"}
 		 									 			 ]
 		 									},
 		 									{"dname":"广东电信流量套装",
-		 									 "price":"￥2799.10",
+		 									 "price":"2799.10",
 		 									 "save":"省18.90元",
+		 									 "originalprice":"(原价:¥2818.00元)",
 		 									 "otherprod":[{"name":"广东电信流量卡(黑色)","proSrc":"/images/product_Z17/card.jpg"}]
 		 									 },
 		 									{"dname":"仅手机",
-		 									 "price":"￥2799.00",
+		 									 "price":"2799.00",
 		 									 "save":"",
+		 									 "originalprice":"",
 		 									 "otherprod":""
 		 									}
 		 								   ],
@@ -83,20 +91,22 @@
 		 					   			{"way":"￥533.17*6","servicetip":"(含￥0.00手续费)"},
 		 					   			{"way":"￥286.58*12","servicetip":"(含￥239.93手续费)"}
 		 					   		   ],
-		 					   "insurance":"Z17标准版屏碎宝（1年内保修1次）￥129"
+		 					   "insurance":{"name":"Z17标准版屏碎宝（1年内保修1次）","price":"129"}
 		 					  },
 		 			"imgSrc":["/images/product_Z17/gold1.jpg","/images/product_Z17/gold2.jpg","/images/product_Z17/gold3.jpg","/images/product_Z17/gold4.jpg"]
 		 			},
 				   {"store":"8GB+64GB",
 				   	"options":{"discounts":[
 		 									{"dname":"广东电信流量套装",
-		 									 "price":"￥3199.10",
+		 									 "price":"3199.10",
 		 									 "save":"省18.90元",
+		 									 "originalprice":"(原价:¥3218.00元)",
 		 									 "otherprod":[{"name":"广东电信流量卡(黑色)","proSrc":"/images/product_Z17/card.jpg"}]
 		 									},
 		 									{"dname":"仅手机",
-		 									 "price":"￥3199.00",
+		 									 "price":"3199.00",
 		 									 "save":"",
+		 									 "originalprice":"",
 		 									 "otherprod":""
 		 									}
 		 								   ],
@@ -105,7 +115,7 @@
 		 					   			{"way":"￥487.49*6","servicetip":"(含￥125.95手续费)"},
 		 					   			{"way":"￥250.74*12","servicetip":"(含￥209.93手续费)"}
 		 					   		   ],
-		 					   "insurance":"Z17 8GB+64GB版屏碎宝（1年内保修1次）￥139"
+		 					   "insurance":{"name":"Z17 8GB+64GB版屏碎宝（1年内保修1次）","price":"139"}
 		 					  },
 		 			"imgSrc":["/images/product_Z17/gold1.jpg","/images/product_Z17/gold2.jpg","/images/product_Z17/gold3.jpg","/images/product_Z17/gold4.jpg"]
 				   }
@@ -116,16 +126,18 @@
 		 "edtion":[{"store":"6GB+128GB",
 		 			"options":{"discounts":[
 		 									{"dname":"套装版",
-		 									 "price":"￥3599.00",
+		 									 "price":"3599.00",
 		 									 "save":"省78.00元",
+		 									 "originalprice":"(原价:¥3677.00元)",
 		 									 "otherprod":[
 		 									 			  {"name":"努比亚移动电源（8000mAh）(白色)","proSrc":"/images/product_Z17/powerbank.jpg"},
-		 									 			  {"name":"Z17 全贴合皮套(黑色)","proSrc":"/images/product_Z17/pitao.jpg"}
+		 									 			  {"name":"Z17 全贴合皮套(黑色)","proSrc":"/images/product_Z17/pitao.png"}
 		 									 			 ]
 		 									},
 		 									{"dname":"仅手机",
-		 									 "price":"￥3399.00",
+		 									 "price":"3399.00",
 		 									 "save":"",
+		 									 "originalprice":"",
 		 									 "otherprod":""
 		 									}
 		 								   ],
@@ -134,7 +146,7 @@
 		 					   			{"way":"￥626.83*6","servicetip":"(含￥161.96手续费)"},
 		 					   			{"way":"￥322.41*12","servicetip":"(含￥269.93手续费)"}
 		 					   		   ],
-		 					   "insurance":"Z17高配版屏碎宝（1年内保修1次）￥149"
+		 					   "insurance":{"name":"Z17高配版屏碎宝（1年内保修1次）","price":"149"}
 		 					  },
 		 			"imgSrc":["/images/product_Z17/bgold1.jpg","/images/product_Z17/bgold2.jpg","/images/product_Z17/bgold3.jpg","/images/product_Z17/bgold4.jpg"]
 		 			}
@@ -145,13 +157,15 @@
 		 "edtion":[{"store":"6GB+64GB",
 		 			"options":{"discounts":[		 									
 		 									{"dname":"广东电信流量套装",
-		 									 "price":"￥2799.10",
+		 									 "price":"2799.10",
 		 									 "save":"省18.90元",
+		 									 "originalprice":"(原价:¥2818.00元)",
 		 									 "otherprod":[{"name":"广东电信流量卡(黑色)","proSrc":"/images/product_Z17/card.jpg"}]
 		 									 },
 		 									{"dname":"仅手机",
-		 									 "price":"￥2799.00",
+		 									 "price":"2799.00",
 		 									 "save":"",
+		 									 "originalprice":"",
 		 									 "otherprod":""
 		 									}
 		 								   ],
@@ -160,15 +174,16 @@
 		 					   			{"way":"￥487.49*6","servicetip":"(含￥125.95手续费)"},
 		 					   			{"way":"￥250.74*12","servicetip":"(含￥209.93手续费)"}
 		 					   		   ],
-		 					   "insurance":"Z17标准版屏碎宝（1年内保修1次）￥129"
+		 					   "insurance":{"name":"Z17标准版屏碎宝（1年内保修1次）","price":"129"}
 		 					  },
 		 			"imgSrc":["/images/product_Z17/red1.jpg","/images/product_Z17/red2.jpg","/images/product_Z17/red3.jpg","/images/product_Z17/red4.jpg"]
 		 			},
 				   {"store":"6GB+128GB",
 				   	"options":{"discounts":[
 		 									{"dname":"仅手机",
-		 									 "price":"￥3399.00",
+		 									 "price":"3399.00",
 		 									 "save":"",
+		 									 "originalprice":"",
 		 									 "otherprod":""
 		 									}
 		 								   ],
@@ -177,7 +192,7 @@
 		 					   			{"way":"￥617.94*6","servicetip":"(含￥159.66手续费)"},
 		 					   			{"way":"￥317.84*12","servicetip":"(含￥266.10手续费)"}
 		 					   		   ],
-		 					   "insurance":"Z17高配版屏碎宝（1年内保修1次）￥149"
+		 					   "insurance":{"name":"Z17高配版屏碎宝（1年内保修1次）","price":"149"}
 		 					  },
 		 			"imgSrc":["/images/product_Z17/red1.jpg","/images/product_Z17/red5.jpg","/images/product_Z17/red6.jpg","/images/product_Z17/red7.jpg"]
 				   }
@@ -188,8 +203,9 @@
 		 "edtion":[{"store":"8GB+128GB",
 		 			"options":{"discounts":[
 		 									{"dname":"仅手机",
-		 									 "price":"￥3399.00",
+		 									 "price":"3399.00",
 		 									 "save":"",
+		 									 "originalprice":"",
 		 									 "otherprod":""
 		 									}
 		 								   ],
@@ -198,7 +214,7 @@
 		 					   			{"way":"￥725.93*6","servicetip":"(含￥187.56手续费)"},
 		 					   			{"way":"￥373.38*12","servicetip":"(含￥312.60手续费)"}
 		 					   		   ],
-		 					   "insurance":"Z17旗舰版屏碎宝（1年内保修1次）￥169"
+		 					   "insurance":{"name":"Z17旗舰版屏碎宝（1年内保修1次）","price":"169"}
 		 					  },
 		 			"imgSrc":["/images/product_Z17/blue1.jpg","/images/product_Z17/blue2.jpg","/images/product_Z17/blue3.jpg","/images/product_Z17/blue4.jpg"]
 		 			}
