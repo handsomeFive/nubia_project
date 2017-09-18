@@ -52,6 +52,7 @@
 	<script type="text/javascript" src="../lib/jquery/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
+		var che=[0,0,0,0];
 		// 生成验证码
 		function getImgCode(index){
 			$.ajax({
@@ -93,26 +94,48 @@
 			} 
 			if(!content){
 				$(this).siblings().show().html("请填写信息！");
+				che[0]=0;
 			}else if(reg.test(content)){
 				$(this).siblings().hide();
+				che[0]=1;
 			}else{
 				if($(this).is($(".phonenum"))){
 					$(this).siblings().show().html("手机号码格式错误");
+					che[0]=0;
 				}else{
 					$(this).siblings().show().html("邮箱格式格式错误");
+					che[0]=0;
 				} 			
 			}
 		})
 		// 账户的输入检测
+		// 密码的输入
+		$(".pwd").blur(function(){
+			var content=$(this).val(),
+				reg=/(?!^[0-9]+$)(?!^[A-z]+$)(?!^[^A-z0-9]+$)^.{6,16}$/;
+			if (!content) {
+				$(this).siblings().show().html("请填写信息！");
+				che[1]=0;	
+			}else if(reg.test(content)){
+				$(this).siblings().hide();
+				che[1]=1;
+			}else{
+				$(this).siblings().show().html("密码为6-16个(数字字母符号至少包含两种)");
+				che[1]=0;	
+			};
+		})
 		//图形验证码的检测以及点击图片按钮切换图标；
 		$(".code").blur(function(){
 			var content=$(this).val();
 			if(!content){
 				$(this).siblings("span").show().html("请填写信息！");
+				che[2]=0;
 			}else if($(this).siblings("a").children("img").attr("check")==content){
 				$(this).siblings("span").hide();
+				che[2]=1;
 			}else{
 				$(this).siblings("span").show().html("验证码不正确,请重新输入");
+				che[2]=0;
 			}	
 		})
 		$(".imgcode").click(function(){
@@ -124,9 +147,23 @@
 		$(".code-inptext").blur(function(){
 			if(!$(this).val()){
 				$(this).siblings("span").show();
+				che[3]=0;
 			}else{
 				$(this).siblings("span").hide();
+				che[3]=1;
 			}	
+		})
+		// 点击提交按钮事件
+		$(".checkout").click(che,function(){
+			console.log(che);
+			// che[2]=1;
+			
+			// console.log(che)
+			// var test=$.inArray(0,che);
+			// if(test==-1){
+			// 	$(".checkout").prop("disabled","disabled");
+			// 	// console.log("yes");
+			// }
 		})
 	})
 	</script>
@@ -135,17 +172,17 @@
 	<div class="container">
 		<div class="logBox">
 			<div class="log_logo"></div>
-			<form action="?">
+			<form action="localhost/project-nubia/register.php" method="get">
 				<div class="log_tab">
-					<label><a href="javascript:void(0)" class="active">用手机号码注册账号</a></label>|<label><a href="javascript:void(0)" >用电子邮箱注册账号</a></label>
+					<label><a href="javascript:void(0)" class="active">用手机号码注册账号</a></label>|<label><a href="javascript:void(0)">用电子邮箱注册账号</a></label>
 				</div>
 				<div class="registerbyphone">
 					<div class="phonenum-inp">
-						<input type="text" placeholder="请输入手机号码" class="phonenum"/>
+						<input type="text" placeholder="请输入手机号码" class="phonenum"  name="phonenum"/>
 						<span class="redword">请填写信息！</span>
 					</div>
 					<div class="pwd-inp">
-						<input type="password" placeholder="密码为6-16个字符(数字、字母符号至少包含两种)" class="pwd rpPwd"/>
+						<input type="password" placeholder="密码为6-16个字符(数字、字母符号至少包含两种)" class="pwd rpPwd" name="password"/>
 						<span class="redword">请填写信息！</span>
 					</div>
 					<div class="code-input">
@@ -161,11 +198,11 @@
 				</div>
 				<div class="regisbyemail">
 					<div class="email-inp">
-						<input type="text" placeholder="请输入常用邮箱地址" class="accountname"/>
+						<input type="text" placeholder="请输入常用邮箱地址" class="accountname"  name="emailaddr"/>
 						<span class="redword">请填写信息！</span>
 					</div>
 					<div class="pwd-inp">
-						<input type="password" placeholder="密码为6-16个字符(数字、字母符号至少包含两种)" class="pwd rePwd"/>
+						<input type="password" placeholder="密码为6-16个字符(数字、字母符号至少包含两种)" class="pwd rePwd" name="password2"/>
 						<span class="redword">请填写信息！</span>
 					</div>
 					<div class="code-input">
@@ -181,7 +218,7 @@
 				<div class="agreePil">
 					<p><input type="checkbox" checked>我已阅读并接受<a href="?">用户协议</a>和<a href="?">隐私政策</a></p>
 				</div>
-				<input type="submit" value="提交" class="checkout"/>
+				<input type="submit" value="提交" class="checkout" disabled="disabled"/>
 			</form>
 			<div class="loginnow">已有账号，<a href="/html/login.html" class="active">直接登录</a></div>
 		</div>

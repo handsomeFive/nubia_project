@@ -17,8 +17,9 @@
 	.options-phone li:hover{border-bottom: 2px solid red;}
 	.options-phone li:hover a{ color: #666;}
 	.phone_buy,.phone_info{ float: left; width: 600px;}
+	.phone_info{ margin-bottom: 20px;}
 	.phone_buy{text-align: center;}
-	.big_img{ margin: 0 auto; margin-top: 50px;}
+	.big_img{ margin: 0 auto; margin-top: 50px; margin-bottom: 15px;}
 	.small_img{ display: inline-block; position: relative;}
 	.small_img a{ display: inline-block; border: 1px solid #ccc;margin-left: 10px;}
 	.small_img img{ width: 84px;}
@@ -28,9 +29,9 @@
 	.share_pc a{border: 0; font-size: 14px; margin-right: 20px; display: inline-block; position: relative;}
 	.share_pc a i{ font-size: 20px; color:#fb1515;}
 	.share_pc a span{ position: relative; top: -3px; padding-left: 4px;}
-	.share_moudle{ position: absolute; top: -130px;background: url(../images/product_Z17/sharebg.png); width: 75px; height:124px;padding-left:35px; padding-top:6px;background-size: 100%; opacity:0;transition:all 1s;}
-	.share_moudle a:hover{ color:#000}
-	.share:hover .share_moudle{opacity: 1}	
+	.share_moudle{ position: absolute; top: -130px;background: url(../images/product_Z17/sharebg.png); width: 75px; height:124px;padding-left:35px; padding-top:6px;background-size: 100%; opacity:0;display: none;transition:all 1s;}
+	.share a:hover{ color:#000}
+	.share:hover .share_moudle{opacity: 1;display: block;}	
 	.phone_info{}
 	.info_head{margin-top: 85px; height: 51px; margin-left: 38px; padding-bottom: 15px; border-bottom: 1px solid #ccc}
 	.info_head strong{ font-size: 30px;}
@@ -57,6 +58,16 @@
 	.attachPro div img{  width: 68%;margin: 0 auto;}
 	.attachPro div p{ margin: 0; font-size: 15px; text-indent: 2px; color: #999;text-align: center;}
 	.attachPro div a:hover p{ color: #000}
+	.fixedOnTop{ height: 0; text-align: right;color: rgb(102,102,102);background-color: rgba(255,255,255,.95); width: 100%; border-bottom: 1px solid #ddd; position: fixed; line-height: 60px; top: 0;overflow: hidden;display: none;font-size: 14px;}
+	.fixedOnTop span ,.fixedOnTop a{ font-size: 14px; }
+	.fixedOnTop a{ display: inline-block; background: #e8380d; width: 126px; height: 40px; color: #fff;border-radius: 3px; text-align: center; line-height: 40px;}
+	.phone_introduce img{ width: 100%;}
+	.phone_introduce{  margin-top: 100px;}
+	.introduce_tab{ padding: 19px 0;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;}
+	.click_tab b{ display: inline-block; height: 22px; line-height: 22px; color: #000;font-size: 18px;cursor: pointer;}
+	.click_tab b.current{ color: #e33b1f;}
+	.click_tab span{ display: inline-block; height: 22px; border-left: 1px solid #000; margin: 0 50px; position: relative; top: 6px;}
+	.word_introduce{ display: none;}
 	</style>
 </head>
 <body>
@@ -75,7 +86,7 @@
 				<li><a href="?">M2 畅玩版</a></li>
 			</ul>
 		</div>
-		<div class="main">
+		<div class="main buy clearfix">
 			<div class="phone_buy">
 				<div class="phone_show">
 						<img class="big_img">
@@ -171,9 +182,49 @@
 				</div>				
 				<a href="" class="buynow">立即购买</a>
 			</div>		
-		</div>		
+		</div>
 	</div>
-	<div class="phone_introduce"></div>
+	<div class="fixedOnTop">
+			<div class="main">
+				<span class="checkedInfor"></span>
+				<a href="javascript:void(0)">立即购买</a>	
+			</div>			
+	</div>		
+	<div class="phone_introduce">
+		<div class="introduce_tab">
+			<div class="main">
+				<div class="click_tab">
+					<b class="current">商品详情</b><span></span><b>规格参数</b>
+				</div>				
+			</div>			
+		</div>
+		<div class="picture_introduce">
+			<img src="/images/product_Z17/app.jpg">
+			<img src="/images/product_Z17/in1.jpg">
+			<img src="/images/product_Z17/in2.jpg">
+			<img src="/images/product_Z17/in3.jpg">
+			<img src="/images/product_Z17/in4.jpg">
+			<img src="/images/product_Z17/in5.jpg">
+			<img src="/images/product_Z17/in6.jpg">
+			<img src="/images/product_Z17/in7.jpg">
+			<img src="/images/product_Z17/in8.jpg">
+			<img src="/images/product_Z17/in8.5.jpg">
+			<img src="/images/product_Z17/in9.jpg">
+			<img src="/images/product_Z17/in9.5.jpg">
+			<img src="/images/product_Z17/in10.jpg">
+			<img src="/images/product_Z17/in11.jpg">
+			<img src="/images/product_Z17/in12.jpg">
+			<img src="/images/product_Z17/in13.jpg">
+		</div>
+		<div class="word_introduce">			
+			<img src="/images/product_Z17/info1.jpg">
+			<img src="/images/product_Z17/info2.jpg">
+			<img src="/images/product_Z17/info3.jpg">
+			<img src="/images/product_Z17/info4.jpg">
+			<img src="/images/product_Z17/info5.jpg">
+			<img src="/images/product_Z17/info6.jpg">
+		</div>
+	</div>
 	<div class="footer"></div>
 	<div class="bottom"></div>
 </body>

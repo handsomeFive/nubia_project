@@ -1,5 +1,5 @@
 require(["config"],function(){
-	require(["template","jquery"],function(template){
+	require(["template","jquery","header"],function(template){
 		$(function(){
 			$.ajax({//加载头部文件
 				url:"public/header.html",

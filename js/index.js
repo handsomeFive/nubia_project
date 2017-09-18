@@ -1,5 +1,5 @@
 require(["config"],function(){
-	require(["jquery","header","template","cookie"],function(a,b,template){
+	require(["header","jquery","template","cookie"],function(a,b,template){
 		$(function(){
 			// 提取公共部分的heade并加载
 			$.ajax({
@@ -48,23 +48,29 @@ require(["config"],function(){
 				timer=setInterval(move,5000)
 				// 小圆点的点击切换事件
 				$(circles).click(function(){
+					clearInterval(timer);
 					var a=$.inArray(this,circles);
 					if(a===currentIndex)
 						return 
 					nextIndex=a;
-
 					move();
+					timer=setInterval(move,5000);
 				})
 				$(".banner_carousel_next").click(function(){
+					clearInterval(timer);
 					move();
+					timer=setInterval(move,5000)
 				})
 				$(".banner_carousel_prev").click(function(){
+					clearInterval(timer);
 					nextIndex=currentIndex-1;
 					if(nextIndex<0)
 						nextIndex=3;
 					move();
+					timer=setInterval(move,5000)
 				})
 				function move(){
+					clearInterval(timer)
 					$(imgs.get(currentIndex)).fadeOut(1000);
 					$(imgs.get(nextIndex)).fadeIn(1000);
 					$(circles.get(currentIndex)).prop("class","");

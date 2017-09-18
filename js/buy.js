@@ -1,10 +1,25 @@
 require(["config"],function(){
 	require(["jquery","cookie","header"],function(a,b,c){
+		// 加载顶部底部脚部的公共资源
 		$.ajax({
 			url:"/html/public/header.html",
 			dataType:"html",
 			success:function(data){
 				$(".header").html(data);
+			}
+		})
+		$.ajax({
+			url:"/html/public/footer.html",
+			dataType:"html",
+			success:function(data){
+				$(".footer").html(data);
+			}
+		})
+		$.ajax({
+			url:"/html/public/bottom.html",
+			dataType:"html",
+			success:function(data){
+				$(".bottom").html(data);
 			}
 		})
 		$(function(){//开始对本页面的数据进行渲染
@@ -47,11 +62,7 @@ require(["config"],function(){
 					upDateImg();
 				$(".chooseColor ul li").click(function(){
 					$(this).addClass("current").siblings().removeClass("current");
-					checkedStore=$(".chooseEdtion ul").children(".current").html();//点击颜色的时候也保存当前存储信息
-					// 更新图片所在的index
-					colorIndex=$(".chooseColor ul").children(".current").attr("pindex");
-					edtionData=versionsData[colorIndex].edtion;
-					edtionIndex=$(".chooseEdtion ul").children(".current").attr("pindex");
+					checkedStore=$(".chooseEdtion ul").children(".current").html();//点击颜色的时候也保存当前存储信息					
 					imgSrc=edtionData[edtionIndex].imgSrc;
 					addStore();
 					addDiscounts();
@@ -73,11 +84,14 @@ require(["config"],function(){
 					upDateImg();
 				});
 				$(".chooseCombo").on("click","li",function(){
+					var index=$(this).index();
 					$(this).addClass("current").siblings().removeClass("current");
 					addAttachPro();
 					changeByInfor();
 					changeTotal();
 					changeTotal();
+					// 修改原价的信息；
+					$(".total del").html(optionsData.discounts[index].originalprice);
 				})
 				$(".chooseSafe").on("click","li",function(){
 					$(this).toggleClass("current");
@@ -117,7 +131,7 @@ require(["config"],function(){
 					// discounts 套餐的渲染
 					for(var i=0;i<optionsData.discounts.length;i++){
 						if (i===optionsData.discounts.length-1) {
-							html+="<li class='current' pindex='"+i+"'><span>"+optionsData.discounts[i].dname+"</span><br><b>¥"+optionsData.discounts[i].price+"</b></li>";
+							html+="<li class='current' pindex='"+i+"'><span>"+optionsData.discounts[i].dname+"</span><br><b>¥"+optionsData.discounts[i].price+"</b></li>";							
 						}else
 							html+="<li pindex='"+i+"'><span>"+optionsData.discounts[i].dname+"</span><br><b>¥"+optionsData.discounts[i].price+"</b><i>"+optionsData.discounts[i].save+"</i></li>";
 					}					
@@ -159,7 +173,8 @@ require(["config"],function(){
 					var sum=Number(checkedProPrice)+Number(checkedInsPrice);
 					totalsum=sum.toFixed(2);
 					$(".subtotal_price i").html(totalsum);
-					$(".info_head span i").html(totalsum)
+					$(".info_head span i").html(totalsum);
+					$(".fixedOnTop span").html(data.name+"&nbsp;"+checkedColor+"&nbsp;"+checkedStore+"&nbsp;"+checkedIns+"&nbsp;"+totalsum+"元")
 				}
 				function upDateImg(){
 					$(".big_img").prop("src",imgSrc[0]);
@@ -175,6 +190,59 @@ require(["config"],function(){
 				// 	console.log(checkedColor+checkedStore+checkedProPrice+checkedIns+checkedInsPrice);
 				// },4000)
 			})
+		})
+		// 鼠标滚轮事件处理吸顶效果的操作
+		$(window).scroll(function(){
+			var _top=$(window).scrollTop();
+			var _imgsTop=$(".introduce_tab").offset();
+			// console.log(_imgsTop.top,_top)
+			if(_top>=67){
+				$(".fixedOnTop").stop().show().animate({height:60},300);
+				if(_top>=_imgsTop.top){
+					if(typeof $(".fixedOnTop .main").children(".click_tab").html()==="undefined"){
+						$(".click_tab").clone(true).prependTo(".fixedOnTop .main").css("float","left");
+						$(".introduce_tab .main").children(".click_tab").remove();
+					}	
+				}else{
+					if(typeof $(".introduce_tab .main").children(".click_tab").html()==="undefined"){
+						$(".click_tab").clone(true).prependTo(".introduce_tab .main").css("float","none");
+						$(".fixedOnTop .main").children(".click_tab").remove();
+					}
+				}
+			}else if(_top<67){
+				$(".fixedOnTop").stop().animate({height:0},500).hide();				
+			}
+		})
+		// 鼠标滚轮事件处理预览图片的
+		var oringinOff=$(".phone_show").offset();
+		$(window).scroll(function(){
+			var _top=$(window).scrollTop();
+			var showTop=$(".phone_buy").offset();
+			var deadLine=$(".phone_introduce").offset();
+			var height=($(".phone_buy").height());
+			
+			if(_top>showTop.top){
+				// 给其父级元素高度已放置文档乱
+				$(".phone_buy").height(height);
+				$(".phone_show").css({"position":"fixed","top":0,"left":showTop.left+12});
+				if (_top>deadLine.top-height-100){
+					$(".phone_show").css({"position":"relative","top":deadLine.top-height-100-oringinOff.top,"left":0});
+				};
+			}else{
+				$(".phone_show").css({"position":"relative","top":0,"left":0})
+			}
+		})
+		$(".click_tab").on("click","b",function(){
+			var index=$(this).index();
+			if(index==0){
+				$(this).prop("class","current").siblings().prop("class","");
+				$(".picture_introduce").show();
+				$(".word_introduce").hide();
+			}else{
+				$(this).prop("class","current").siblings().prop("class","");
+				$(".word_introduce").show();
+				$(".picture_introduce").hide();
+			}
 		})
 	})
 })

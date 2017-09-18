@@ -11,7 +11,7 @@ require(["config"],function(){
 				});
 				// 克隆查看更多按键并往轮播图后面添加一个box装“+”
 				var more=$(".head_hidden_more").clone(true);
-				$(more).prop("href","html/allphone.html")
+				$(more).prop("href","/html/allphone.html")
 				$(more).children("p").text("查看所有手机")
 				$(".head_hidden_content_all").append(more);
 	 		})

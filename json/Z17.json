@@ -8,7 +8,7 @@
 		 									{"dname":"套装版",
 		 									 "price":"2999.00",
 		 									 "save":"省28.00元",
-		 									 "originalprice":"(原价:¥3024.00元)",
+		 									 "originalprice":"（原价:¥3024.00元）",
 		 									 "otherprod":[{"name":"努比亚律音耳机(深沉灰)","proSrc":"/images/product_Z17/erji.jpg"},
 		 									 			  {"name":"努比亚移动电源（8000mAh）(白色)","proSrc":"/images/product_Z17/powerbank.jpg"}
 		 									 			 ]
@@ -16,7 +16,7 @@
 		 									{"dname":"广东电信流量套装",
 		 									 "price":"2799.10",
 		 									 "save":"省18.90元",
-		 									 "originalprice":"(原价:¥2818.00元)",
+		 									 "originalprice":"（原价:¥2818.00元）",
 		 									 "otherprod":[{"name":"广东电信流量卡(黑色)","proSrc":"/images/product_Z17/card.jpg"}]
 		 									 },
 		 									{"dname":"仅手机",
@@ -40,7 +40,7 @@
 		 									{"dname":"广东电信流量套装",
 		 									 "price":"3199.10",
 		 									 "save":"省18.90元",
-		 									 "originalprice":"(原价:¥3218.00元)",
+		 									 "originalprice":"（原价:¥3218.00元）",
 		 									 "otherprod":[{"name":"广东电信流量卡(黑色)","proSrc":"/images/product_Z17/card.jpg"}]
 		 									},
 		 									{"dname":"仅手机",
@@ -68,15 +68,15 @@
 		 									{"dname":"套装版",
 		 									 "price":"2999.00",
 		 									 "save":"省28.00元",
-		 									 "originalprice":"(原价:¥3027.00元)",
-		 									 "otherprod":[{"name":"努比亚律音耳机(深沉灰)","proSrc":"/images/product_Z17/erji.jpg"},
+		 									 "originalprice":"（原价:¥3027.00元）",
+		 				    				 "otherprod":[{"name":"努比亚律音耳机(深沉灰)","proSrc":"/images/product_Z17/erji.jpg"},
 		 									 			  {"name":"努比亚移动电源（8000mAh）(白色)","proSrc":"/images/product_Z17/powerbank.jpg"}
 		 									 			 ]
 		 									},
 		 									{"dname":"广东电信流量套装",
 		 									 "price":"2799.10",
 		 									 "save":"省18.90元",
-		 									 "originalprice":"(原价:¥2818.00元)",
+		 									 "originalprice":"（原价:¥2818.00元）",
 		 									 "otherprod":[{"name":"广东电信流量卡(黑色)","proSrc":"/images/product_Z17/card.jpg"}]
 		 									 },
 		 									{"dname":"仅手机",
@@ -100,7 +100,7 @@
 		 									{"dname":"广东电信流量套装",
 		 									 "price":"3199.10",
 		 									 "save":"省18.90元",
-		 									 "originalprice":"(原价:¥3218.00元)",
+		 									 "originalprice":"（原价:¥3218.00元）",
 		 									 "otherprod":[{"name":"广东电信流量卡(黑色)","proSrc":"/images/product_Z17/card.jpg"}]
 		 									},
 		 									{"dname":"仅手机",
@@ -128,7 +128,7 @@
 		 									{"dname":"套装版",
 		 									 "price":"3599.00",
 		 									 "save":"省78.00元",
-		 									 "originalprice":"(原价:¥3677.00元)",
+		 									 "originalprice":"（原价:¥3677.00元）",
 		 									 "otherprod":[
 		 									 			  {"name":"努比亚移动电源（8000mAh）(白色)","proSrc":"/images/product_Z17/powerbank.jpg"},
 		 									 			  {"name":"Z17 全贴合皮套(黑色)","proSrc":"/images/product_Z17/pitao.png"}
@@ -159,7 +159,7 @@
 		 									{"dname":"广东电信流量套装",
 		 									 "price":"2799.10",
 		 									 "save":"省18.90元",
-		 									 "originalprice":"(原价:¥2818.00元)",
+		 									 "originalprice":"（原价:¥2818.00元）",
 		 									 "otherprod":[{"name":"广东电信流量卡(黑色)","proSrc":"/images/product_Z17/card.jpg"}]
 		 									 },
 		 									{"dname":"仅手机",
