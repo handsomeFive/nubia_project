@@ -46,73 +46,7 @@
 	.logbyaccount input{ width: 348px; margin-bottom: 20px;}
 	.accout-inp{ position: relative;}
 	</style>
-	<script type="text/javascript" src="../lib/jquery/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript">
-	$(function(){
-		// 生成验证码
-		function getImgCode(){
-			$.ajax({
-				type:"post",
-				// url:"http://route.showapi.com/26-4",
-				dataType:"json",
-				data:{
-					"showapi_appid":"45026",
-					"showapi_sign":"38c0df553479481fa15ab3d683f10aa0"
-				},
-				success:function(data){
-					$(".imgcode").attr({"check":data.showapi_res_body.text,"src":data.showapi_res_body.img_path});
-				}
-			})
-		}
-		// 点击切换登录方式
-		$(".log_tab").on("click","label",function(){
-			if ($(this).is($(".log_tab label:first"))) {
-				$(".logbyaccount").show();
-				$(".logbyphone").hide();
-			}else{
-				$(".logbyaccount").hide();
-				$(".logbyphone").show();
-				getImgCode();
-			}
-			$(this).children().addClass("active").end().siblings().children().removeClass("active");
-		})
-		// 简单的表单验证
-
-		// 手机号码的验证
-		$(".phonenum").blur(function(){
-			var content=$(this).val();
-			var reg=/^(131|135|138|139|152|155)\d{8}$/;
-			if(!content){
-				$(this).siblings().show().html("请填写信息！");
-			}else if(reg.test(content)){
-				$(this).siblings().hide();
-			}else{
-				$(this).siblings().show().html("手机号码格式错误");
-			}
-		})
-		// 账户的输入检测
-		// 手机验证码的验证(就仅为检测是否输入)
-		$(".accountname,.code-inptext").blur(function(){
-			if(!$(this).val()){
-				$(this).siblings("span").show();
-			}else{
-				$(this).siblings("span").hide();
-			}		
-		})
-		//图形验证码的检测以及点击图片按钮切换图标；
-		$(".code").blur(function(){
-			var content=$(this).val();
-			if(!content){
-				$(this).siblings("span").show().html("请填写信息！");
-			}else if($(this).siblings("a").children("img").attr("check")==content){
-				$(this).siblings("span").hide();
-			}else{
-				$(this).siblings("span").show().html("验证码不正确,请重新输入");
-			}	
-		})
-		$(".imgcode").click(getImgCode);
-	})
-	</script>
+	<script type="text/javascript" src="/lib/require/require.js" data-main="/js/login.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -135,10 +69,10 @@
 				</div>
 				<div class="logbyaccount">
 					<div class="accout-inp">
-						<input type="text" placeholder="邮箱/手机号码/用户名" class="accountname"/><span class="redword">请填写信息！</span>
+						<input type="text" placeholder="邮箱/手机号码/用户名" class="accountname" name="username"/><span class="redword">请填写信息！</span>
 					</div>
-					<div>
-						<input type="password" placeholder="密码为6-16个字符(数字、字母符号至少包含两种)" class="phonenum"/>
+					<div style="position:relative">
+						<input type="password" placeholder="密码为6-16个字符(数字、字母符号至少包含两种)" class="password" name="password"/><span class="redword">手机验证码不能为空</span>
 					</div>
 				</div>
 				<input type="submit" value="立即登录" class="checkout"/>

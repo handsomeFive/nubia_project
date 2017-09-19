@@ -1,5 +1,5 @@
 require(["config"],function(){
-	require(["template"],function(template){
+	require(["template","cookie"],function(template){
 		$(function(){
 			//动态获取json里面的数据
 	 		$.getJSON("../json/header.json",{dataType:"jsonp"},function(data){
@@ -81,6 +81,30 @@ require(["config"],function(){
 	 				}
 	 			}
 	 					
+	 		})
+	 		// 检测有无登录的cookie
+	 		$(".loginbtn").click(function(){
+	 			$.cookie.json = true;
+	 			var userinfo=$.cookie("userAccount");	
+	 			// console.log(userinfo);
+	 			if(userinfo){
+	 				$(".sanjiao").stop().animate({top:-6},400)
+	 				$(".username").html(userinfo.username);
+	 				$(".userinfor").show();
+	 				$(".logout").click(function(){
+	 					$.removeCookie("userAccount");
+	 					location.href="/index.html";
+	 				})
+	 				setTimeout(function(){
+	 					$(".sanjiao").stop().animate({top:-16},400)
+	 				},5800)
+	 				setTimeout(function(){
+	 					$(".userinfor").hide();
+	 				},6000)
+	 			}else{
+	 				location.href="/html/login.html";
+	 			}
+	 			
 	 		})
 	})
 	})

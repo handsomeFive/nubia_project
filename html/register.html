@@ -154,16 +154,40 @@
 			}	
 		})
 		// 点击提交按钮事件
-		$(".checkout").click(che,function(){
-			console.log(che);
-			// che[2]=1;
-			
-			// console.log(che)
-			// var test=$.inArray(0,che);
-			// if(test==-1){
-			// 	$(".checkout").prop("disabled","disabled");
-			// 	// console.log("yes");
-			// }
+		function clickCheck(obj){
+			if (!obj.val()) {
+				obj.siblings("span").show().html("验证码不能为空");
+			};
+		}
+		$(".checkout").click(function(){
+			clickCheck($(".code"));
+			che[2]=1;
+			var test=$.inArray(0,che);
+			if(test===-1){
+				$.ajax({
+					type:"get",
+					dataType:"json",
+					url:"http://localhost/project-nubia/register.php",
+					data:{
+						"password":$(".password1").val(),
+						"password2":$(".password2").val(),
+						"phonenum":$(".phonenum").val(),
+						"emailaddr":$(".accountname").val()
+					},					
+					success:function(data){
+						var status=data.status;
+						if(status==-1){
+							$(".phonenum").siblings().show().html("手机号码已经被注册！");
+						}else{
+							$(".checkout").val("注册成功，跳转登录页面中...");
+							setTimeout(function(){
+							 	location.href="/html/login.html";
+							},800)
+						}
+					}
+				})
+			}			
+			return false;
 		})
 	})
 	</script>
@@ -172,17 +196,17 @@
 	<div class="container">
 		<div class="logBox">
 			<div class="log_logo"></div>
-			<form action="localhost/project-nubia/register.php" method="get">
+			<form>
 				<div class="log_tab">
 					<label><a href="javascript:void(0)" class="active">用手机号码注册账号</a></label>|<label><a href="javascript:void(0)">用电子邮箱注册账号</a></label>
 				</div>
 				<div class="registerbyphone">
 					<div class="phonenum-inp">
-						<input type="text" placeholder="请输入手机号码" class="phonenum"  name="phonenum"/>
+						<input type="text" placeholder="请输入手机号码" class="phonenum"/>
 						<span class="redword">请填写信息！</span>
 					</div>
 					<div class="pwd-inp">
-						<input type="password" placeholder="密码为6-16个字符(数字、字母符号至少包含两种)" class="pwd rpPwd" name="password"/>
+						<input type="password" placeholder="密码为6-16个字符(数字、字母符号至少包含两种)" class="pwd rpPwd password1"/>
 						<span class="redword">请填写信息！</span>
 					</div>
 					<div class="code-input">
@@ -198,11 +222,11 @@
 				</div>
 				<div class="regisbyemail">
 					<div class="email-inp">
-						<input type="text" placeholder="请输入常用邮箱地址" class="accountname"  name="emailaddr"/>
+						<input type="text" placeholder="请输入常用邮箱地址" class="accountname"/>
 						<span class="redword">请填写信息！</span>
 					</div>
 					<div class="pwd-inp">
-						<input type="password" placeholder="密码为6-16个字符(数字、字母符号至少包含两种)" class="pwd rePwd" name="password2"/>
+						<input type="password" placeholder="密码为6-16个字符(数字、字母符号至少包含两种)" class="pwd rePwd password2"/>
 						<span class="redword">请填写信息！</span>
 					</div>
 					<div class="code-input">
@@ -218,7 +242,7 @@
 				<div class="agreePil">
 					<p><input type="checkbox" checked>我已阅读并接受<a href="?">用户协议</a>和<a href="?">隐私政策</a></p>
 				</div>
-				<input type="submit" value="提交" class="checkout" disabled="disabled"/>
+				<input type="submit" value="提交" class="checkout"/>
 			</form>
 			<div class="loginnow">已有账号，<a href="/html/login.html" class="active">直接登录</a></div>
 		</div>

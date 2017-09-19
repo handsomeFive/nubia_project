@@ -30,3 +30,9 @@
 .head_hidden_prev1 a i , .head_hidden_next1 a i{ font-size: 24px; line-height: 240px;}
 .head_hidden_content_all,.head_hidden_content_all2{ position: absolute;}
 .head_hidden_more p{ width: 60px; line-height: 24px; margin:  0 auto; margin-top: 24px;}
+.header_log{ position: relative;}
+.userinfor{   display: none;border-radius: 4px;position: absolute; z-index: 2; padding: 0 11px; background: #333; text-align: left; left: -270px;font-size: 16px;top: 76px;}
+.userinfor li{ width: 300px; height: 65px; line-height: 65px; border-bottom: 1px solid #555555}
+.userinfor li i{ font-size: 12px;color: #a0a0a0; margin-right: 10px;}
+.sanjiao{position: absolute; top: -16px; left: 290px; border-bottom: 6px solid #333; border-left:7px solid transparent; border-right: 7px solid transparent}
+.username{ margin-left:10px }
