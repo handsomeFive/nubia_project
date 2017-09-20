@@ -52,6 +52,7 @@ require(["config"],function(){
 					checkedIns="",//用于保存选中的保险名字
 					checkedInsPrice="",//用于保存选中的保险价钱
 					totalsum,//保存小计的金额
+					checkedProduct={account:1},
 					imgSrc=[];
 					addStore();
 					addDiscounts();
@@ -92,13 +93,19 @@ require(["config"],function(){
 					changeTotal();
 					// 修改原价的信息；
 					$(".total del").html(optionsData.discounts[index].originalprice);
+					// 数据缓存所点击的版本信息与图片集					
+					checkedProduct.combo=optionsData.discounts[index].dname=="仅手机"?"":optionsData.discounts[index].dname;					
+					checkedProduct.save=optionsData.discounts[index].save.slice(1,6);
+					
+					for(var i=0;i<optionsData.discounts[index].otherprod.length;i++){
+						checkedProduct.otherprod.push(optionsData.discounts[index].otherprod[i].name);
+					}					
 				})
 				$(".chooseSafe").on("click","li",function(){
 					$(this).toggleClass("current");
 					if($(".chooseSafe ul li").attr("class")){
 						checkedIns=optionsData.insurance.name;
-						checkedInsPrice=optionsData.insurance.price;
-						
+						checkedInsPrice=optionsData.insurance.price;						
 					}else{
 						checkedIns="";
 						checkedInsPrice="";
@@ -172,9 +179,22 @@ require(["config"],function(){
 				function changeTotal(){//更新小计
 					var sum=Number(checkedProPrice)+Number(checkedInsPrice);
 					totalsum=sum.toFixed(2);
+					// 更新即将加入购物车的数据
+					var index=$(".chooseCombo ul").children(".current").index();
 					$(".subtotal_price i").html(totalsum);
 					$(".info_head span i").html(totalsum);
-					$(".fixedOnTop span").html(data.name+"&nbsp;"+checkedColor+"&nbsp;"+checkedStore+"&nbsp;"+checkedIns+"&nbsp;"+totalsum+"元")
+					$(".fixedOnTop span").html(data.name+"&nbsp;"+checkedColor+"&nbsp;"+checkedStore+"&nbsp;"+checkedIns+"&nbsp;"+totalsum+"元");
+					checkedProduct.name=data.name;
+					checkedProduct.color=checkedColor;
+					checkedProduct.store=checkedStore;
+					checkedProduct.insurance=checkedIns;
+					checkedProduct.insprice=checkedInsPrice;
+					checkedProduct.price=checkedProPrice;
+					checkedProduct.cartimgsrc=optionsData.discounts[index].cartimgsrc;
+					checkedProduct.id=optionsData.discounts[index].id;	
+					checkedProduct.otherprod=[];
+					checkedProduct.combo="";
+					checkedProduct.save=0;				
 				}
 				function upDateImg(){
 					$(".big_img").prop("src",imgSrc[0]);
@@ -183,12 +203,39 @@ require(["config"],function(){
 					})
 				}
 				$(".huabei li").each(function(i,c){
-					$(this).children("span").text(optionsData.loans[i].way).end().children("b").text(optionsData.loans[i].servicetip)
+					$(this).children("span").text(optionsData.loans[i].way).end().children("b").text(optionsData.loans[i].servicetip);
 				})				
-				// var price=$("");
-				// setInterval(function(){
-				// 	console.log(checkedColor+checkedStore+checkedProPrice+checkedIns+checkedInsPrice);
-				// },4000)
+				// 添加信息到cookie中去
+				$(".clicktobuy ,.buynow").click(function(){
+					$.cookie.json=true;
+					var attr=$.cookie("buyProduct")||[];
+					var index=indexOf(checkedProduct.id,attr);
+					if(index===-1)
+						attr.push(checkedProduct);
+					else
+						attr[index].account++;
+					// if(attr==null){
+					// 	attr.push(checkedProduct);
+					// }else{
+					// 	for(var i=0;i<attr.length;i++){
+					// 		if (checkedProduct.id==attr[i].id){
+					// 			console.log(attr[i].account,attr[i].account+1)
+					// 			attr[i].account=attr[i].account+1;
+					// 			return;
+					// 		}							
+					// 	}
+					// 	attr.push(checkedProduct);
+					// }
+					$.cookie("buyProduct",attr,{path:"/",expires:7})
+					return false;
+				})
+				function indexOf(id, products) {
+					for (var i = 0, len = products.length; i < len; i++) {
+						if(products[i].id == id)
+							return i;
+					}
+					return -1;
+				}
 			})
 		})
 		// 鼠标滚轮事件处理吸顶效果的操作
@@ -244,5 +291,6 @@ require(["config"],function(){
 				$(".picture_introduce").hide();
 			}
 		})
+
 	})
 })

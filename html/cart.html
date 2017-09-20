@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/css/public/reset.css">
+	<link rel="stylesheet" type="text/css" href="/css/public/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/font/iconfont.css">
+	<style type="text/css">
+	.empty_cart{ width: 670px; height: 319px; margin: 0 auto; margin-bottom: 60px; display: none;}
+	.left{ margin-top: 100px; float:left;}
+	.left p{ font-size: 28px; color: #666;}
+	.left a{ display: block; width: 165px; height: 35px;line-height: 35px; text-align: center;border-radius: 25px; background:#e8380d;color: #fff; font-size: 14px; margin-top: 20px;}
+	.right{ width: 276px; height: 269px; background: url(/images/other/empty_icon.jpg); float: left; margin: 40px 0 0 30px;}
+	.cart_bg{ width: 100%; height: 180px; background: url(/images/other/bg_payorder_1.png) no-repeat center;}
+	.cart_content{ display: none;}
+	.cart_infor{ width: 1170px; margin: 0 auto; padding: 0 15px;}
+	.show_infor{ width: 100%;border: 1px solid #eef0f0;border-collapse: collapse;}
+	.show_infor td{ border: 1px solid #eef0f0;padding: 8px 11px;}
+	.show_infor thead td{  font-size: 12px; color: #313131; background:#f8f7f7; }
+	.product_infor img{ width: 100px; height: 100px;}
+	.changeSum{ line-height: 13px;border: 1px solid  #eef0f0; display: inline-block; height: 25px; border-radius: 4px; font-size: 16px;}
+	.changeSum a{ display: inline-block; padding: 6px; color: #e95f46; height: 13px;}
+	.inp_sum{ width: 48px; height:25px; border: 1px solid #eef0f0; border-top:0;border-bottom: 0; color: #899096; position: relative; top :-2px; background: transparent;}
+	.names .redname a{ color: #e95f46; font-size: 13px;}
+	.price{ font-size: 13px; color: #666}
+	.inp_sum{ text-align: center; line-height: 15px;}
+	.subtotal{ color: #666;font-size: 13px;}
+	.saved{color: #666; font-size: 15px; display: none;}
+	.deleteprod{ width: 20px; height: 20px; font-weight: bold; text-align: center; margin-left: 12px; color:#838383; font-size: 18px; }
+	.deleteprod:hover{ color: #e95f46}
+	.template{ display: none;}
+	</style>
+	<script type="text/javascript" src="/lib/require/require.js" data-main="/js/cart.js"></script>
+</head>
+<body>
+	<div class="header"></div>
+	<div class="empty_cart">
+		<div class="left">
+			<p>你的购物车还是空的</p>
+			<p>赶紧行动吧！</p>
+			<a href="/index.html">马上去购物</a>
+		</div>	
+		<div class="right"></div>	
+	</div>
+	<div class="cart_content">
+		<div class="cart_bg"></div>
+		<div class="cart_infor">
+			<p>共<span class="sum">1</span>件商品</p>
+			<table border="0" cellspacing="0" cellpadding="0" class="show_infor">
+				<thead>
+					<tr>
+						<td width="15%">商品</td>
+						<td width="38%"></td>
+						<td width="11%">单价</td>
+						<td width="16%">数量</td>
+						<td width="12%">小计</td>
+						<td width="6%">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="template">
+						<td><img src="" class="showImg"></td>
+						<td class="names">
+							<p class="infoname"></p>
+							<p class="redname"><a href="?"></a></p>
+							<p class="redname"><a href="?"></a></p>
+						</td>
+						<td>
+							<p class="price">￥<span></span></p>
+						</td>
+						<td class="amount">
+							<div class="changeSum">
+								<a href="javascript:void(0)" class="del">-</a
+								><input type="text" class="inp_sum" disabled="true"/  
+								><a href="javascript:void(0)" class="add">+</a>
+							</div>							
+						</td>
+						<td>
+							<p class="subtotal">￥<span></span></p>
+							<p class="saved">已优惠:￥<span>0</span></p>
+						</td>
+						<td><a class="deleteprod" href="javascript:void(0)">×</a></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="2"></td>
+						<td colspan="2" style="text-align:right">
+							<p>商品总计:</p>
+							<p>共节省:</p>
+							<p>合计(不含运费):</p>
+						</td>
+						<td colspan="2">
+							<p></p>
+							<p></p>
+							<p></p>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+	<div class="footer"></div>
+	<div class="bottom"></div>
+</body>
+</html>
