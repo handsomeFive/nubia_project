@@ -1,0 +1,23 @@
+define(["jquery"],function($){
+	$.ajax({
+			url:"/html/public/header.html",
+			dataType:"html",
+			success:function(data){
+				$(".header").html(data)
+			}
+		})
+		$.ajax({
+			url:"/html/public/footer.html",
+			dataType:"html",
+			success:function(data){
+				$(".footer").html(data)
+			}
+		})
+		$.ajax({
+			url:"/html/public/bottom.html",
+			dataType:"html",
+			success:function(data){
+				$(".bottom").html(data)
+			}
+		})
+});

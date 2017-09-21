@@ -94,7 +94,11 @@ require(["config"],function(){
 							// 登录成功将用户名、手机号码、邮箱存储到cookie中
 							$.cookie("userAccount",JSON.stringify(user),{path:"/"})
 							setTimeout(function(){
-								location.href="/index.html";
+								if($.cookie("buyProduct"))
+									location.href="/html/confirm.html";
+								else
+									location.href="/index.html";
+								
 							},800)
 						}
 					}

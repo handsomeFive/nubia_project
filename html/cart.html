@@ -30,6 +30,25 @@
 	.deleteprod{ width: 20px; height: 20px; font-weight: bold; text-align: center; margin-left: 12px; color:#838383; font-size: 18px; }
 	.deleteprod:hover{ color: #e95f46}
 	.template{ display: none;}
+	.hide_row2{display: none;}
+	.addAll p,.all p{ line-height: 26px; font-size: 15px; color:rgb(102, 102, 102)}
+	.btn-cart-groups{ width: 1170px; margin:0 auto; margin-top: 20px; height: 69px; border: 1px solid #eef0f0;border-top: 0;text-align: center;}
+	.btn-cart-groups-inner{ display: inline-block; margin-top: 15px;}
+	.btn-cart-groups-inner a{ display: inline-block; width: 80px; border-radius: 20px;border:1px solid #e8380d; padding: 10px; height: 21px; font-size: 15px; color: #e8380d}
+	.btn-cart-groups-inner a:hover{ color: #333}
+	a.gotocomfirm{ color: #fff; background: #e8380d;margin-left: 50px;}
+	.cart_hot{ width: 1170px; margin: 0 auto; margin-top: 50px;}
+	.cart_hot h2{height: 27px; padding: 20px; font-size: 18px; background:#fafafa; color:rgb(102, 102, 102)}
+	.cart_hot ul{ border-right: 1px solid #ddd; display: inline-block;}
+	.hot_prod{ float: left; width: 224px; height: 418px; padding: 0 30px; border: 1px solid #ddd;border-right: 0}
+	.show_img img{ width: 224px;}
+	.box_product{width: 184px; margin:0 auto;}
+	.box_progress{height: 2px; margin-bottom: 20px; background: #f5f5f5}
+	.progress_up{ width: 15%; height: 2px; background:#e8380d}
+	.produc_info p{ font-size: 14px; color:#34383d; line-height: 20px;}
+	p.hot_price { color:#e8380d }
+	.addtocart{ width: 93px; height: 28px; border: 1px solid #ccc; border-radius:4px; display: block; margin: 0 auto; margin-top: 20px; text-align: center; line-height: 28px;font-size: 14px; transition: all .3s ease;}
+	.addtocart:hover{ color:#e8380d; border-color:#e8380d }
 	</style>
 	<script type="text/javascript" src="/lib/require/require.js" data-main="/js/cart.js"></script>
 </head>
@@ -86,19 +105,54 @@
 				<tfoot>
 					<tr>
 						<td colspan="2"></td>
-						<td colspan="2" style="text-align:right">
+						<td colspan="2" style="text-align:right" class="addAll">
 							<p>商品总计:</p>
-							<p>共节省:</p>
+							<p class="hide_row2">共节省:</p>
 							<p>合计(不含运费):</p>
 						</td>
-						<td colspan="2">
+						<td colspan="2" class="all">
 							<p></p>
-							<p></p>
+							<p class="hide_row2">0</p>
 							<p></p>
 						</td>
 					</tr>
 				</tfoot>
 			</table>
+		</div>
+		<div class="btn-cart-groups">
+			<div class="btn-cart-groups-inner">
+				<a href="/index.html">继续购物</a>
+				<a href="javascript:void(0)" class="gotocomfirm">立即结算</a>
+			</div>
+		</div>
+		<div class="cart_hot">
+			<h2>热门商品</h2>
+			<ul class="clearfix templateforhot">
+				<script type="text/html" id="hot-pro">
+				<%
+					for(var i=0;i<attr.length;i++){
+						var prod=attr[i];					
+				%>
+					<li class="hot_prod">
+						<a href="" class="show_img">
+							<img src=<%=prod.imgSrc%>>
+						</a>
+						<div class="box_product">
+							<div class="box_progress">
+								<div class="progress_up"></div>
+							</div>
+							<div class="produc_info">
+								<p><%=prod.name%></p>
+								<p class="hot_price">￥<span><%=prod.price%></span></p>
+							</div>
+							<a href="javascript:void(0)" class="addtocart">加入购物车</a>
+						</div>
+					</li>
+				<%
+					}
+				%>
+				</script>				
+			</ul>
 		</div>
 	</div>
 	<div class="footer"></div>

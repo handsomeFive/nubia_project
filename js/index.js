@@ -1,37 +1,6 @@
 require(["config"],function(){
 	require(["header","jquery","template","cookie"],function(a,b,template){
 		$(function(){
-			// 提取公共部分的heade并加载
-			$.ajax({
-				url:"html/public/header.html",
-				dataType:"html",
-				success:function(data){
-					var html=data;
-					$(".header").html(html);
-				}
-			})
-		})
-		$(function(){
-			$.ajax({
-				url:"html/public/footer.html",
-				dataType:"html",
-				success:function(data){
-					var html=data;
-					$(".footer").html(html);
-				}
-			})
-		})
-		$(function(){
-			$.ajax({
-				url:"html/public/bottom.html",
-				dataType:"html",
-				success:function(data){
-					var html=data;
-					$(".bottom").html(html);
-				}
-			})
-		})
-		$(function(){
 			// 切页的btn变换
 			// banner的滚动(轮播图的功能实现)
 				$(".banner_carousel_prev_box,.banner_carousel_next_box").mouseenter(function(){

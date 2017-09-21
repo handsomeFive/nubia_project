@@ -1,27 +1,5 @@
 require(["config"],function(){
 	require(["jquery","cookie","header"],function(a,b,c){
-		// 加载顶部底部脚部的公共资源
-		$.ajax({
-			url:"/html/public/header.html",
-			dataType:"html",
-			success:function(data){
-				$(".header").html(data);
-			}
-		})
-		$.ajax({
-			url:"/html/public/footer.html",
-			dataType:"html",
-			success:function(data){
-				$(".footer").html(data);
-			}
-		})
-		$.ajax({
-			url:"/html/public/bottom.html",
-			dataType:"html",
-			success:function(data){
-				$(".bottom").html(data);
-			}
-		})
 		$(function(){//开始对本页面的数据进行渲染
 			$.getJSON("/json/Z17.json",{dataType:"jsonp"},function(data){
 				// 头部数据的渲染
@@ -208,7 +186,7 @@ require(["config"],function(){
 				// 添加信息到cookie中去
 				$(".clicktobuy ,.buynow").click(function(){
 					$.cookie.json=true;
-					var attr=$.cookie("buyProduct")||[];
+					var attr=$.makeArray($.cookie("buyProduct"))||[];
 					var index=indexOf(checkedProduct.id,attr);
 					if(index===-1)
 						attr.push(checkedProduct);
