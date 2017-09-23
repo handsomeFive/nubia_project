@@ -97,8 +97,9 @@ define(["jquery","template"],function($,template){
 			 				$(".username").html(userinfo.username);
 			 				$(".userinfor").show();
 			 				$(".logout").click(function(){
-			 					$.removeCookie("userAccount");
-			 					location.href="/index.html";
+			 					console.log($(".logout"));
+			 					$.removeCookie("userAccount",{path:'/'});
+			 					// location.href="/index.html";
 			 				})
 			 				setTimeout(function(){
 			 					$(".sanjiao").stop().animate({top:-16},400)
@@ -126,7 +127,7 @@ define(["jquery","template"],function($,template){
 				success:function(data){
 					$(".bottom").html(data)
 				}
-			})			
+			})	
 	})
 })
 

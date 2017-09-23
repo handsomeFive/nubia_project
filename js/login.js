@@ -94,11 +94,15 @@ require(["config"],function(){
 							// 登录成功将用户名、手机号码、邮箱存储到cookie中
 							$.cookie("userAccount",JSON.stringify(user),{path:"/"})
 							setTimeout(function(){
-								if($.cookie("buyProduct"))
-									location.href="/html/confirm.html";
+								if($.cookie("confirmBuy")){
+									if ($.cookie("confirmBuy")) {
+										$.removeCookie("confirmBuy",{path:"/"})
+										location.href="/html/confirm.html";
+									}eles
+										history.back();
+								}									
 								else
-									location.href="/index.html";
-								
+									history.back()								
 							},800)
 						}
 					}

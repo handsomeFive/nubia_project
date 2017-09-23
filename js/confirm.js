@@ -1,10 +1,11 @@
 require(["config"],function(){
 	require(["template","jquery","header","cookie"],function(){
 		$(function(){
-/**********/ 		
+/**********/ 	
+		$.removeCookie("confirmBuy",{path:"/"})	
 		function getProvince(i){
 			$.ajax({
-				// url:"http://route.showapi.com/1149-1",
+				url:"http://route.showapi.com/1149-1",
 				data:{
 					showapi_appid:"29550",
 					showapi_sign:"08402fce064a484baad949d9a18f75e7",
@@ -25,7 +26,7 @@ require(["config"],function(){
 		}
 		function setnextCity(obj,id){
 			$.ajax({
-				// url:"http://route.showapi.com/1149-2",
+				url:"http://route.showapi.com/1149-2",
 				data:{
 					showapi_appid:"29550",
 					showapi_sign:"08402fce064a484baad949d9a18f75e7",

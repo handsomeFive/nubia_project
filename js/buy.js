@@ -205,6 +205,7 @@ require(["config"],function(){
 					// 	attr.push(checkedProduct);
 					// }
 					$.cookie("buyProduct",attr,{path:"/",expires:7})
+					location.href="/html/cart.html"
 					return false;
 				})
 				function indexOf(id, products) {

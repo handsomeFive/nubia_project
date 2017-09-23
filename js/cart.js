@@ -69,6 +69,8 @@ require(["config"],function(){
 				updataData();	
 			})	
 			$(".gotocomfirm").click(function(){
+				var confirm_pro=$.cookie("buyProduct");
+				$.cookie("confirmBuy",confirm_pro,{expires:7,path:"/"});
 				if($.cookie("userAccount")){
 					location.href="/html/confirm.html"
 				}else{
