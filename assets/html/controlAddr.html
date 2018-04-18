@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="../css/public/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/public/header.css">
+    <script type="text/javascript" src="../lib/require/require.js" data-main="../js/controlAddr.js"></script>
+    <style>
+        .payorder_bg{width: 100%; height: 180px; background: url(/images/other/bg_payorder_2.png) no-repeat center;}
+        .middle{ width: 1200px; margin: 0 auto; color:rgb(102, 102, 102);}
+        .title{ height: 21px; padding: 10px 10px 10px 15px;background: #fafafa; color: #585858;font-size: 18px; margin-top: 20px;}
+        .adress_content{display: none;}
+        .adress_content,.showaddress{ margin-top: 20px; padding-left: 60px; font-size: 14px;}
+        .adress_content ul li,.showaddress ul li{ height: 38px; padding-bottom: 10px;margin-top: 12px;}
+        .adress_content ul li span,.showaddress ul li span{ display: inline-block;width: 100px;}
+        .width500{ width: 472px; padding: 0 13px; height: 28px;border: 1px solid #e0e4e7;border-radius: 4px;}
+        .adress_content .notice{  padding: 0; margin: 0; color: #e8380d;height: 0;overflow: hidden;}
+        .adress_content select{ height: 30px; color: inherit;}
+        .city,.town{ display: none;}
+        .adress_do{ text-align: center;padding: 6px 12px; margin-top: 40px;}
+        .adress_do .saveNewAddress ,.addNewAddr,.shiftAddr,.setDefault{ display: inline-block;padding: 5px 15px; color: #fff;line-height: 15px; background:rgb(232, 56, 13); border-radius: 4px;font-size: 12px; margin-right: 10px;}
+        .canceladdress{color:rgb(232, 56, 13);border: 1px solid rgb(232, 56, 13);display: inline-block;font-size:12px; padding: 5px 15px;border-radius: 4px; }
+        label{ font-size: 13px;line-height: 25px;height: 25px;}
+        label input{ margin-right: 10px;}
+        .checkbtn{ padding:30px 0 40px 45px;}
+        .choosetime{padding:30px 0 40px 60px; }
+        .chooseinvoice{padding:30px 0 40px 80px; }
+        .list .title a{ float: right; color: #e8380d; font-size: 13px;}
+        .shoppingcart{ width:100%;border-collapse:collapse;margin: 20px 0;text-align: center;color: #666;}
+        .shoppingcart thead{ background: #fafafa;}
+        .shoppingcart thead td{ padding: 20px 0; height: 35px; line-height: 35px; font-size: 14px; font-weight: bold; }
+        .shoppingcart td{ border: 1px solid #e7e7e7; }
+        .imgShow{ width: 110px;}
+        .name{ text-align: left;}
+        .imgwrod{ padding:10px 0 10px 30px;}
+        .template{ display:none;}
+        .cost{ margin-bottom: 30px;}
+        .cost p{text-align: right; line-height: 40px; color:#000 ;font-size: 13px;}
+        .cost span{  color:#ea4725;}
+        .confirmbtn{display: inline-block; width: 96px; height: 30px; text-align: center; color: #fff;line-height: 30px; font-size: 13px; background: #ea4725;border-radius: 4px;}
+        .now_addr,.now_people{display: inline-block;}
+        .addrItem{border-radius:2em;border:1px solid #ea4725;display: inline-block;padding: 5px;margin-bottom:10px;box-shadow:2px 2px 5px #ea4725;}
+        .add_item{display: inline-block;width:550px;margin: 10px 6px;font-size: 12px;border: 1px solid gray;box-sizing: content-box;padding: 4px;cursor: pointer;border-radius: 10px;}
+        .list-info{margin: 4px 0;}
+        .list-info span{display: inline-block;width: 70px;}
+        .btns{text-align: center;padding-top: 10px;padding-bottom: 10px;}
+        .active_border{border-color: #ea4725}
+        .btn_style{display: inline-block;padding: 5px 15px; color: #fff;line-height: 15px; background:rgb(232, 56, 13); border-radius: 4px;font-size: 4px;font-size: 12px; margin-right: 10px;}
+        .edit_info{width:400px;display:none;border:1px solid gray;border-radius: 4px;padding: 2px;font-size: 12px;height: 20px;}
+        .show_info{padding: 2px;height: 20px;display: inline-block;border: 1px solid transparent}
+        .save_addr,.cancle_ed{display: none;}
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="content">
+        <div class="middle">
+            <div class="myadress">
+                <h2 class="title">我的收获地址</h2>
+                <div class="all_addr">
+                    <script type="text/html" id="show_addr">
+                        <%
+                        if(!addres){
+                        %>
+                        <h2 class="info">还没有地址信息，赶快去添加吧！</h2>
+                        <%
+                        }else{
+                        for(var i=0;i<addres.length;i++){
+                            let addr=addres[i],
+                                className=addr.isDefault?" active_border":'';
+                        %>
+                        <div  id=<%=addr.locationId%> class='add_item <%=className%>'>
+                            <ul class="addrItemInfo">
+                                <li class="list-info"><span>收货地址：</span>
+                                                          <i class="show_info"><%=addr.addr%></i>
+                                                      <input class="edit_info" value=<%=addr.addr%>></li>
+                                <li class="list-info"><span>收货人：</span>
+                                                      <i class="show_info"><%=addr.name%></i>
+                                                      <input class="edit_info" value=<%=addr.name%>></li></li>
+                                <li class="list-info"><span>联系方式：</span>
+                                                      <i class="show_info"><%=addr.phonenum%></i>
+                                                      <input class="edit_info" value=<%=addr.phonenum%>></li>
+                                </li>
+                            </ul>
+                            <div class="btns">
+                                <a href="javascript:void(0)" class="btn_style edit_addr">编辑地址</a>
+                                <a href="javascript:void(0)" class="btn_style dele_addr">删除地址</a>
+                                <a href="javascript:void(0)" class="btn_style save_addr">保存地址</a>
+                                <a href="javascript:void(0)" class="btn_style cancle_ed">取消修改</a>
+                            </div>
+                        </div>
+                        <%
+                        }
+                        }
+                        %>
+                    </script>
+                </div>
+                <a href="javascript:void(0)" class="setDefault">设为默认</a>
+                <a href="javascript:void(0)" class="addNewAddr">新增地址</a>
+                <div class="adress_content">
+                    <ul>
+                        <li><span>收件人:</span><input type="text" class="width500 name mustinput"></li>
+                        <li class="notice"><span></span><i>错误：这是必填项。</i></li>
+                        <li><span>省份:</span
+                        ><select class="province"><option>请选择...</option></select
+                        ><select class="city"></select
+                        ><select class="town"></select>
+                        </li>
+                        <li><span>收获地址:</span><i class="adressprovince"></i><i class="adresscity"></i><i class="adresstown"></i><input type="text" class="width500 detail_address"></li>
+                        <li><span>手机:</span><input type="text" class="width500 location_phone"></li>
+                    </ul>
+                    <div class="adress_do">
+                        <a href="javascript:void(0)" class="saveNewAddress">保存新地址</a>
+                        <a href="javascript:void(0)" class="canceladdress">取消</a></div>
+                </div>
+            </div>
+
+    </div>
+    <div class="footer"></div>
+    <div class="bottom"></div>
+</body>
+</html>
