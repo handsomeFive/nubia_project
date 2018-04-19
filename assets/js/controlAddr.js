@@ -4,18 +4,21 @@ require(["config"], function () {
             nextSource = [];
 
         function getProvince() {
-            $.getJSON('../json/region_dumps.json', {dataType: 'json'}, function (data) {
-                dataSource = data;
-                let provinceData = [],
-                    html = '';
-                data.forEach(function (value) {
-                    provinceData.push(value.name);
-                });
-                for (var i = 0; i < provinceData.length; i++) {
-                    html += "<option>" + provinceData[i] + "</option>"
-                }
-                $(".province").append(html);
-            });
+            $.post('/queryCities',{},function (data) {
+                    if(!data.code){
+                        console.log(data)
+                        dataSource = data.data[0].all;
+                        let provinceData = [],
+                            html = '';
+                        data.data[0].all.forEach(function (value) {
+                            provinceData.push(value.name);
+                        });
+                        for (var i = 0; i < provinceData.length; i++) {
+                            html += "<option>" + provinceData[i] + "</option>"
+                        }
+                        $(".province").append(html);
+                    }
+            })
         }
 
         function setnextCity(obj, value) {
@@ -76,6 +79,7 @@ require(["config"], function () {
         var user = $.cookie("userAccount"),
             userId = user.userId;
         $.post("/queryAddr", {userId}, function (data) {
+            console.log(data);
             var html=template("show_addr",{addres:data.data});
             $(".all_addr").html(html);
         });
@@ -102,10 +106,10 @@ require(["config"], function () {
                 location = $('.detail_address').val(),
                 num = $('.location_phone').val(),
                 isdef = $('.location_isDefult').val();
-            if (name && province && city && town && location && num && isdef) {
+            if (name && province && city && town && location && num) {
                 let addr = province + city + town + location,
                     phonenum = num,
-                    isDefault = isdef === 'on',
+                    isDefault = false,
                     locationId = new Date().getTime(),
                     userId = id;
                 $.post('/addLocation', {name,addr, phonenum, isDefault, locationId, userId}, function (data) {

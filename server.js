@@ -4,7 +4,8 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 // 引入模块model进行数据库操作
 var User = require("./back/models/user"),
-    Location = require("./back/models/locations");
+    Location = require("./back/models/locations"),
+    City =require("./back/models/cities");
 
 
 //连接数据库
@@ -53,6 +54,16 @@ app.post("/register", function (req, res) {
     })
 })
 
+app.post("/queryCities",function (req,res) {
+   City.find({index:0},function (err,doc) {
+       if(!err){
+           res.json({code:0,mag:'查询成功',data:doc})
+       }else{
+           res.json({code:-1,msh:'查询失败'})
+       }
+   })     
+});
+
 app.post("/login", function (req, res) {
     var {username, pwd} = req.body;
     User.find({phonenum: username}, function (err, doc) {
@@ -95,7 +106,8 @@ app.post("/addLocation", function (req, res) {
     })
 })
 app.post("/queryAddr",function (req,res) {
-    Location.find({isDefault:true},function (err,doc) {
+    // let userId=;
+    Location.find(req.body,function (err,doc) {
         if(!err){
             let def;
             if (doc.length>0){
