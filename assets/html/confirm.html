@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/css/public/reset.css">
+	<link rel="stylesheet" type="text/css" href="/css/public/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/font/iconfont.css">
+	<script type="text/javascript" src="/lib/require/require.js" data-main="/js/confirm"></script>
+	<style type="text/css">
+	.payorder_bg{width: 100%; height: 180px; background: url(/images/other/bg_payorder_2.png) no-repeat center;}
+	.middle{ width: 1200px; margin: 0 auto; color:rgb(102, 102, 102);}
+	.title{ height: 21px; padding: 10px 10px 10px 15px;background: #fafafa; color: #585858;font-size: 18px; margin-top: 20px;}
+	.adress_content,.showaddress{ margin-top: 20px; padding-left: 60px; font-size: 14px;}
+	.adress_content ul li,.showaddress ul li{ height: 38px; padding-bottom: 10px;margin-top: 12px;}
+	.adress_content ul li span,.showaddress ul li span{ display: inline-block;width: 100px;}
+	.width500{ width: 472px; padding: 0 13px; height: 28px;border: 1px solid #e0e4e7;border-radius: 4px;}
+	.adress_content .notice{  padding: 0; margin: 0; color: #e8380d;height: 0;overflow: hidden;}
+	.adress_content select{ height: 30px; color: inherit;}
+	.city,.town{ display: none;}
+	.adress_do{ text-align: center;padding: 6px 12px; margin-top: 40px;}
+	.adress_do .saveNewAddress ,.addNewAddr,.shiftAddr{ display: inline-block;padding: 5px 15px; color: #fff;line-height: 15px; background:rgb(232, 56, 13); border-radius: 4px;font-size: 12px; margin-right: 10px;}
+	.canceladdress{color:rgb(232, 56, 13);border: 1px solid rgb(232, 56, 13);display: inline-block;font-size:12px; padding: 5px 15px;border-radius: 4px; }
+	label{ font-size: 13px;line-height: 25px;height: 25px;}
+	label input{ margin-right: 10px;}
+	.checkbtn{ padding:30px 0 40px 45px;}
+	.choosetime{padding:30px 0 40px 60px; }
+	.chooseinvoice{padding:30px 0 40px 80px; }
+	.list .title a{ float: right; color: #e8380d; font-size: 13px;}
+	.shoppingcart{ width:100%;border-collapse:collapse;margin: 20px 0;text-align: center;color: #666;}
+	.shoppingcart thead{ background: #fafafa;}
+	.shoppingcart thead td{ padding: 20px 0; height: 35px; line-height: 35px; font-size: 14px; font-weight: bold; }
+	.shoppingcart td{ border: 1px solid #e7e7e7; }
+	.imgShow{ width: 110px;}
+	.name{ text-align: left;}
+	.imgwrod{ padding:10px 0 10px 30px;}
+	.template{ display:none;}
+	.cost{ margin-bottom: 30px;}
+	.cost p{text-align: right; line-height: 40px; color:#000 ;font-size: 13px;}
+	.cost span{  color:#ea4725;}
+	.confirmbtn{display: inline-block; width: 96px; height: 30px; text-align: center; color: #fff;line-height: 30px; font-size: 13px; background: #ea4725;border-radius: 4px;}
+	.now_addr,.now_people{display: inline-block;}
+	.addrItem{border-radius:2em;border:1px solid #ea4725;display: inline-block;padding: 5px;margin-bottom:10px;box-shadow:2px 2px 5px #ea4725;}
+	.add_item{margin: 10px 6px;font-size: 12px;border: 1px solid gray;box-sizing: content-box;padding: 4px;cursor: pointer;border-radius: 10px;}
+	.list-info span{display: inline-block;width: 70px;}
+	.btns{text-align: center}
+	.active_border{border-color: #ea4725}
+	.btn_style{margin-top: 10px;display: inline-block;padding: 5px 15px; color: #fff;line-height: 15px; background:rgb(232, 56, 13); border-radius: 4px;font-size: 4px;font-size: 12px; margin-right: 10px;}
+	</style>
+</head>
+<body>
+	<div class="header"></div>
+	<div class="payorder_bg"></div>
+	<div class="middle">
+		<div class="myadress">
+			<h2 class="title">我的收获地址</h2>
+			<div class="showaddress">
+				<ul class="addrItem">
+					<li><span>收货地址：</span><p class="now_addr"></p></li>
+					<li><span>收货人：</span><p  class="now_people"></p></li>
+				</ul><br/>
+				<a href="/html/controlAddr.html" class="shiftAddr">修改地址</a>
+			</div>
+		</div>
+		<div class="payway">
+			<h2 class="title">支付方式</h2>
+			<div class="checkbtn">
+				<label><input type="radio" checked/>在线支付</label>
+			</div>
+		</div>
+			<div class="sendTime">
+			<h2 class="title">配送时间</h2>
+			<div class="choosetime">
+				<label><input type="radio" name="time" checked/>只工作日送货(双休日、假日不配送)</label>
+				<label><input type="radio" name="time"/>工作日、双休日与假日均可送货</label>
+				<label><input type="radio" name="time"/>只双休日、假日送货(工作日不配送)</label>
+			</div>
+		</div>
+		<div class="invoice">
+			<h2 class="title">发票信息</h2>
+			<div class="chooseinvoice">
+				<div class="commoninvoice"><label><input type="radio" checked/>普通发票</label></div>
+				<div class="invoiceheader">
+					<span>发票抬头：</span>
+					<label><input type="radio" name="invoice" checked/>个人</label>
+					<label><input type="radio" name="invoice"/>单位 （请确认单位名称和纳税人识别号正确,以免因名称错误耽搁您的报销）</label>
+				</div>
+			</div>
+		</div>
+		<div class="list">
+			<h2 class="title">商品清单<a href="/html/cart.html">修改清单</a></h2>
+			<table class="shoppingcart" cellspacing="0"  border="0" cellpadding="0">
+				<thead>
+					<tr>
+						<td width="41%">商品名称</td>
+						<td width="20%">单价</td>
+						<td width="19%">数量</td>
+						<td width="20%">小计</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="template">
+						<td class="imgwrod">
+							<img src="/images/other/black1.jpg" class="imgShow">
+							<p class="name">Z17 旗舰版（6GB+64GB 曜石黑）</p>
+						</td>
+						<td>
+							<p class="price">¥<span></span></p>
+						</td>
+						<td>
+							<span class="amount"></span>
+						</td>
+						<td>
+							<p>¥<span class="total">2799.00</span></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="summary">
+		     <div class="cost">
+		     	<p>商品金额：<span>￥<b></b></span></p>
+		     	<p>+ 配送费用：<span> ￥0.00</span></p>
+		     	<p>总计：<span>￥<b></b></span></p>
+		     	<p><a href="javascript:void(0)" class="confirmbtn">提交订单</a></p>
+		     </div>
+		</div>
+	</div>
+	<div class="footer"></div>
+	<div class="bottom"></div>
+</body>
+</html>

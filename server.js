@@ -5,7 +5,8 @@ var bodyParser = require("body-parser");
 // 引入模块model进行数据库操作
 var User = require("./back/models/user"),
     Location = require("./back/models/locations"),
-    City =require("./back/models/cities");
+    City =require("./back/models/cities"),
+    Allphone=require("./back/models/allphones");
 
 
 //连接数据库
@@ -133,7 +134,7 @@ app.post("/deleteAddr",function (req,res) {
             res.json({code:0,data:doc})
         }
     })
-})
+});
 app.post("/updateAddr",function (req,res) {
     let locationId=Number(req.body.locationId),
         userId=Number(req.body.userId),
@@ -181,7 +182,17 @@ app.post('/updateDefult',function (req,res) {
             })
         }
     })
-})
+});
+
+app.get("/requestAllPhone",function (req,res) {
+    Allphone.find({},function (err,doc) {
+        if(!err){
+            res.json({code:0,msg:'查找成功！',data:doc})
+        }else{
+            res.json({code:-1,mgs:'查找失败！'})
+        }
+    })
+});
 // 连接服务器
 
 app.listen(8080, function () {

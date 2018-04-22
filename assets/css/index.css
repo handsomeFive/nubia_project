@@ -1,0 +1,420 @@
+.header{
+	height: 66px;
+}
+.banner{
+	position: relative;
+	height: 520px;
+	width: 100%;
+}
+.banner_carousel {
+	position: absolute;
+	height: 520px;
+	width: 100%;
+}
+.banner_carousel_imgs li{
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	display: none;
+}
+.banner_carousel_imgs img{ 
+	position: relative;
+	left: -320px;
+}
+.banner_carousel_circles{
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+	width: 100%;
+	
+}
+.banner_carousel_circlesAlign{
+	margin: 0 auto;
+}
+.banner_carousel_circles span{
+	display:inline-block;	
+	border-radius:50%;
+	border: 2px solid transparent;
+	height: 4px;
+	margin: 6px;
+}
+.banner_carousel_circles span a{
+	display:block;
+	width: 4px;
+	height: 4px;
+	background:#999;
+	border-radius:50%;
+}
+.banner_carousel_circles .current{
+	border-color: red; 
+	padding: 0;
+}
+.banner_carousel_circles .current a{
+	background:rgba(0,0,0,0);
+}
+.banner_others{  position:relative;}
+.banner_carousel_prev,.banner_carousel_next{
+	 width: 41px;
+	 height: 69px;
+	 overflow: hidden;
+	 line-height: 69px;
+	 position: absolute;
+	 top:160px;
+	 overflow: hidden;
+}
+.banner_carousel_prev{
+	left: 250px;
+}
+.banner_carousel_next{
+	 right: 30px;
+}
+.banner_carousel_prev_box,.banner_carousel_next_box{
+	width: 82px;
+	height: 69px;
+	position: absolute;
+	left:-41px;
+	cursor: pointer;
+}
+.banner_carousel_prev_1,.banner_carousel_prev_2,.banner_carousel_next1,.banner_carousel_next2{
+	border-radius:18px;
+	float: left; 
+	width: 41px;
+	height: 69px;
+	text-align: center;
+	float: left;
+}
+.banner_carousel_prev_1 i,.banner_carousel_prev_2 i,.banner_carousel_next1 i,.banner_carousel_next2 i{
+	font-size: 30px; 
+	color: #dedede;
+}
+.banner_carousel_prev_1,.banner_carousel_next2{
+	background-color: rgba(0,0,0,0.1);
+}
+.banner_carousel_prev_2,.banner_carousel_next1{
+	background-color: rgba(0,0,0,0.7);
+}
+.banner_side{ width: 240px; position: absolute; padding:12px 0; height: 496px; background: rgba(250,250, 250, 0.9);}
+.banner_side_options{ position: relative;}
+.banner_side_options_title{display: block; height: 62px; line-height: 62px; padding-left: 68px; font-size: 15px; color: #333;}
+.banner_side_options li a:hover{ background:rgba(250,250,250,0.86); color: #e8340e}
+.banner_side_produ{ display: none; position: absolute;height: 520px;left:240px; top:-12px; background: #fff;}
+.banner_side .c1{ width: 240px;}
+.banner_side .c2{ width: 400px;}
+.banner_side_produ_box{ width: 200px; height: 89px;}
+.banner_side_produ_box img{ width: 60px; float: left; margin-top:15px; margin-left: 10px;}
+.banner_side_produ_box p{left: 10px; position: relative; top: 34px;}
+.banner_side_options .c2 div:last-child{ position: absolute; top: 0; left: 200px;}
+
+/***********************************************************************************************/
+.content{
+
+}
+.content_show{
+
+}
+.content_module_one{
+	padding-top: 10px;
+}
+.content_channel_item{
+ 	width: 240px;
+ 	overflow: hidden;
+ 	float: left;
+}
+.channel_item_font{
+	display: block;
+	border: 1px solid #ebe5d7;
+	border-top:none;
+	border-right: none;
+	width: 79px;
+	height: 89px;
+	background: #f4f3ef; 
+	float: left;
+	color: #888;
+	text-align: center;
+}
+.channel_item_font i{
+	font-size: 40px;
+	line-height: 40px;
+	display: block;
+	padding-top: 20px;
+}
+.channel_item_font_circle{
+	width: 40px;
+	height: 40px; 
+	border: 1px solid #888;
+	border-radius: 50%;
+	margin: 0 auto;
+	margin-top: 18px;
+}
+.channel_item_font_circle i{
+	padding: 0
+}
+.content_channel_item .active{
+	background: #e95f46;
+	color: #fff;
+}
+.content_channel_item .active .channel_item_font_circle{
+	border-color: #fff;
+}
+.content_ad_item{
+	float: left;
+	margin-left: 10px;
+	overflow: hidden;
+}
+.content_ad_item img{
+	transition:all 1.5s;
+}
+.content_ad_item a:hover img{
+	transform:scale(1.1);
+}
+.content_module_title{
+	overflow: hidden;
+}
+.content_module_title h2{
+	font-size: 24px;
+	font-weight: normal;
+	color: #7e7e7e;
+	line-height: 24px;
+	margin: 40px 0 8px 0;
+}
+.content_module_title a{
+	float: right;
+	font-size: 12px;
+	line-height:24px;
+	color: #e8340e;
+	background: transparent;
+}
+.content_module_title i{
+	font-size: 14px;
+	margin-left: 8px;
+	position: relative;
+	top: -1px;
+}
+.content_module_two{
+	 
+}
+.containerForTemplate,.containerForTemplate2,.containerForTemplate3,.otherboxs{
+	padding-top: 10px;
+	margin-left:-13px;
+}
+.containerForTemplate3 .ad{
+	 float: left;
+	 padding-left: 13px;
+}
+/******************商品的模板的样式部分********/
+.content_produ_template{
+	width: 290px; height: 450px;
+	background: #f4f3ef;
+	text-align: center;
+	position: relative;
+	margin:0 0 13px 13px; 
+	float: left;
+}
+.content_produ_desc {
+	margin-top: 10px;
+}
+.content_produ_desc p{
+	 font-size: 16px; 
+	 color: #222;
+	 line-height: 19px;
+}
+.content_produ_desc span{
+	 display: block;
+	 font-size: 13px; 
+	 color: #FF4D4D;
+	 line-height: 24px;
+	 height: 17px;
+}
+.content_produ_template img{
+	width: 290px;
+	padding-top: 54px;
+}
+.content_produ_price{
+	color: #f35c49;
+	 line-height: 32px;
+	 padding-bottom: 2px;
+}
+.content_produ_price sup{
+	 font-size: 14px;	
+}
+.content_produ_price strong{
+	font-size: 16px; 
+	font-weight: bold;
+	padding-left: 6px;
+}
+.content_produ_click{
+	position: absolute;
+	background: #f4f3ef;
+	bottom: 32px;
+	width: 100%;
+	display: none;
+}
+.content_produ_click a{
+	width: 116px;
+	height: 34px;text-align: center;
+	line-height: 34px;border-radius: 16px;
+	display: inline-block;
+	margin: 0 6px;
+}
+.content_produ_click a:first-child{
+	color: #f35c49;
+	background: #fff;
+}
+.content_produ_click a:last-child{
+	background: #f35c49;
+	color: #fff;
+}
+.content_produ_info{
+	display: block;
+	transition:all 0.2s linear;
+}
+.content_produ_info:hover{
+	transform:translateY(-6px);
+}
+.hot_sole{
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	background: #f35c49;
+	border-radius: 50%;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	line-height: 48px;
+	top: 10px;
+	left: 10px;
+	z-index: 2;
+}
+.hot_sole em{
+	position: absolute;
+	display: block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: #f35c49;
+	left: 46px;
+	top: 42px;
+}
+/******************商品的模板的样式部分********/
+/*********************content over************/
+.nb-mall-common{
+	background: #f4f3ef;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	
+}
+.nb_mall_service{
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+.otherbox_comment{
+	float: left;
+	width: 290px;
+	margin: 0 0 13px 13px;
+	background: #fff;
+	text-align: center;
+	height: 334px;
+	position: relative;
+	
+}
+.scale{
+	transition:all 0.5s linear;
+}
+.scale:hover{
+	transform:scale(1.05);
+}
+.otherbox_comment img{
+	width: 290px;
+}
+.otherbox_comment p{
+	font-size: 16px;
+	color: #222;
+	line-height: 60px;
+	margin-top: 20px;
+}
+.otherbox_comment span{
+	font-size: 15px;
+	color: #999;
+	line-height: 24px;
+}
+.play{
+	position: absolute;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background: rgba(210,210,210,0.6);
+	left:119px;
+	top: 74px;
+}
+.play a{
+	display: block;
+	border-top: 10px solid transparent;
+	border-left:15px solid #fff;
+    border-right: 10px  solid transparent;
+    border-bottom: 10px  solid transparent;
+    margin: 15px 0 0 22px;
+    /*transition:all 3s linear;*/
+}
+.play:hover{
+	background:rgba(235,30,30, 0.6) ;
+}
+.phone_serve{
+	width: 533px; height: 130px; background: #fff;
+	float: left;margin: 0 0 13px 13px;
+	padding-top: 42px;
+	padding-left: 60px;
+}
+.phone_serve i{
+	 font-size: 76px;
+	 float: left;
+}
+.phone_serve div{
+	float: left;
+	padding: 8px 0 8px 42px;
+}
+.phone_serve h2{
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+.phone_serve p{
+	width: 318px;
+	font-size: 15px;
+	color: #999;
+	line-height: 22px;
+}
+.phone_serve_list{
+	width: 100%;
+	float: left;
+	padding: 36px 0;
+	background: #fff;
+	margin-left: 13px;
+}
+.serve_list_item{
+	float: left;
+	width: 289px;
+	height: 49px;
+	text-align: center;
+	line-height: 48px;
+	border-right: 1px solid #d9d9d9;
+}
+.serve_list_item:last-child{
+	border: none;
+}
+.serve_list_item i{
+	font-size: 48px;
+	color: #666;
+}
+.serve_list_item span{
+	padding-left: 10px;
+	font-size: 14px; 
+	color: #666;
+	position: relative;
+	top: -14px;
+}
+/**********common over************/
+.footer{
+	height: 384px;
+}
+.bottom{
+	height: 238px;
+}
